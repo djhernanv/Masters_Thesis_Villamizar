@@ -1,0 +1,245 @@
+\documentclass[abstract=on,12pt,a4paper]{scrreprt}
+
+%PACKAGES
+
+\usepackage[english]{babel}
+
+\usepackage[utf8]{inputenc}% Eingabekodierung
+\usepackage[T1]{fontenc}% Schriftkodierung
+
+
+\usepackage{eulervm}
+%\linespread{1.05}
+
+%allows for two images in one figure and several captions
+%\usepackage{subfigure}%deprecated
+\usepackage{graphicx}
+\usepackage{subcaption}
+
+% For Creating Graphs and Diagrams
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows}
+\usepackage{smartdiagram}
+
+\tikzset{
+  treenode/.style = {shape=rectangle, rounded corners,
+                     draw, align=center},
+  root/.style     = {treenode},
+  env/.style      = {treenode},
+  dummy/.style    = {circle,draw}
+ 
+}
+
+
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=UniVieClear!60]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+\usetikzlibrary{shapes.multipart}
+
+\definecolor{UniVieDark}{HTML}{005580}
+\definecolor{UniVieClear}{HTML}{006699}
+\definecolor{UniVieGray}{HTML}{333333}
+\definecolor{UniVieOrange}{HTML}{e84e0e}
+
+%to ennumerate Hypothesis and Research Questions.
+% Not compatible with amsthm
+% \usepackage[amsthm][amsmath][thmmarks]{ntheorem}
+% \theoremstyle{break}
+% \newtheorem{req}{Research Question}
+
+% \theoremstyle{plain}
+% \theoremseparator{:}
+% \theoremindent12pt
+% \newtheorem{hyp}{Hypothesis}[req]
+
+% \renewcommand{\thetheorem}{\arabic{req}}
+% \renewcommand{\thesubtheorem}{\arabic{req}.\arabic{hyp}}
+
+
+% \theoremheaderfont{\sc}\theorembodyfont{\upshape} \theoremstyle{nonumberplain}
+% \theoremseparator{} \theoremsymbol{\rule{1ex}{1ex}} \newtheorem{Proof}{Proof}
+% \qedsymbol{\ensuremath{_\blacksquare}}
+
+\usepackage{textcomp}
+%\usepackage{mathpazo}
+\usepackage{amsmath}
+\usepackage{amsthm} %Not always Compatible with \ntheorem Hypothesis Numbering
+%\usepackage{algorithm,algorithmic}
+\usepackage{float}
+%\usepackage[noend]{algpseudocode}
+\usepackage{enumitem}
+\usepackage{amssymb}
+%\usepackage{mathtools}
+%\usepackage{a4wide}
+\usepackage{fancyhdr}
+\usepackage{eqnarray} 
+%\usepackage{array}
+\usepackage{longtable}
+\usepackage{booktabs}%Tables
+\usepackage[official]{eurosym} %euro symbol
+\usepackage{pifont}%dingbat symbols
+\usepackage[justification=centering]{caption} %forces centering of captions
+
+\usepackage{natbib} %Bib Management
+
+%\usepackage{cite}
+\usepackage{url}
+
+%%%%%%%%%%%%%%%
+%Hypothesis
+\usepackage{thmtools}
+\declaretheoremstyle[
+spaceabove=6pt, spacebelow=6pt,
+headfont=\normalfont\bfseries,
+notefont=\mdseries, notebraces={(}{)},
+bodyfont=\normalfont,
+postheadspace=0.6em,
+headpunct=:
+]{mystyle}
+\declaretheorem[style=mystyle, name=Hypothesis, preheadhook={\renewcommand{\thehyp}{\arabic{hyp}}}]{hyp}
+
+\usepackage{cleveref}
+\crefname{hyp}{hypothesis}{hypotheses}
+\Crefname{hyp}{Hypothesis}{Hypotheses}
+%%%%%%%%%%%%%%
+
+
+%\bibliography{references_MA.bib}
+%\input{fano}
+
+
+\usepackage[toc,page]{appendix}
+
+%\input{primelist}
+
+%\usepackage{pgfplots}
+%\pgfplotsset{compat=1.11}
+
+%\usepackage[left=2.5cm,right=2.5cm,top=1cm,bottom=2cm,includeheadfoot]{geometry} 
+
+\addtokomafont{sectioning}{\rmfamily}
+
+%UMGEBUNGEN
+% \floatname{algorithm}{Algorithm}
+% \renewcommand{\algorithmicrequire}{\textbf{Input:}}
+% \renewcommand{\algorithmicensure}{\textbf{Output:}}
+
+% \DeclareMathOperator{\lcm}{lcm}
+% \DeclareMathOperator\ord{ord}
+
+% \theoremstyle{definition}
+% \newtheorem*{mydef}{Definition}
+
+% \theoremstyle{definition}
+% \newtheorem*{mynot}{Notations}
+
+% \theoremstyle{definition}
+% \newtheorem*{addition}{Addition Law}
+
+% \theoremstyle{remark}
+% \newtheorem*{myremark}{Remark}
+
+\theoremstyle{plain}
+\newtheorem{mytheorem}{Theorem}[chapter]
+
+\theoremstyle{plain}
+\newtheorem{myprop}[mytheorem]{Proposition}
+
+% \theoremstyle{plain}
+% \newtheorem{mycor}[mytheorem]{Corollary}
+
+% \theoremstyle{plain}
+% \newtheorem{mylemma}[mytheorem]{Lemma}
+
+% \theoremstyle{definition}
+% \newtheorem*{myex}{Example}
+
+% \theoremstyle{definition}
+% \newtheorem{myconj}{Conjecture}
+
+
+\newcommand{\csf}{\frac{y_i}{y_i + \sum_{j\neq i}^N y_{j}}}
+
+\begin{document}
+
+\input{Titlepage}
+
+\newpage
+\thispagestyle{empty}
+\mbox{}
+\newpage
+
+%\input{acknowledgements}
+
+\newpage
+\thispagestyle{empty}
+\mbox{}
+\newpage
+
+\input{abstract_english}
+
+\newpage
+\thispagestyle{empty}
+\mbox{}
+\newpage
+
+
+\addtocontents{toc}{\protect\thispagestyle{empty}}
+\tableofcontents
+
+\textwidth15.8cm 
+
+% \nocite{HPS08}
+% \nocite{B08}
+% \nocite{CP05}
+% \nocite{D99}
+% \nocite{P02}
+% \nocite{S14}
+% \nocite{AKS04}
+% \nocite{PR11}
+% \nocite{Ro86}
+% \nocite{Mi76}
+% \nocite{HR75}
+% \nocite{FStatus}
+% \nocite{CRXK12}
+% \nocite{milne06}
+% \nocite{GK99}
+% \nocite{AGP94}
+% \nocite{AM93}
+% \nocite{LP15}
+% \nocite{DB07}
+% \nocite{B05}
+% \nocite{TN12}
+% \nocite{LN86}
+% \nocite{SW}
+% \nocite{GG99}
+% \nocite{DPV06}
+% \nocite{MO}
+% \nocite{S85}
+% \nocite{F85}
+% \nocite{BH96}
+% \nocite{wiki}
+% \nocite{mersenne}
+% \nocite{G04}
+
+
+
+\pagestyle{fancy}
+\fancyhead[OR]{\thepage}
+\fancyhead[EL]{\thepage}
+%\rhead{\fancyplain{}{\bfseries\thepage}}
+\cfoot{}%keine Seitenzahl unten in der Mitte
+\input{Introduction}
+\input{Model}
+\input{Experimental-Design}
+\input{Results}
+\input{Conclusion}
+%input{AKS} %Hauptquelle: originalarbeit, noch was?!
+%\input{Versus}
+\input{Appendix}
+
+%\input{literatur}
+\bibliography{References}
+\bibliographystyle{humannat}
+%\printbibliography
+
+\end{document}
