@@ -2,7 +2,7 @@
     \label{ch:experiment}
     \thispagestyle{fancy}
     
-    The experiment was programmed using oTree \citep{chen2016}, and was conducted in four sessions at the \textit{Vienna Center for Experimental Economics} where a total of 96 people (55 female and 41 male) with an average age of 25 took part. Two of the sessions ran the control while the two others ran the treatment, such that exactly half the participants were in the treatment and half in the control.\\
+    The experiment was programmed using oTree \citep{chen2016}\footnote{A playable demo version is available at XXX.XXX.XXX}, and was conducted in four sessions at the \textit{Vienna Center for Experimental Economics} where a total of 96 people (55 female and 41 male) with an average age of 25 took part. Two of the sessions ran the control while the two others ran the treatment, such that exactly half the participants were in the treatment and half in the control.\\
     
     Participants were not allowed to communicate, nor to use their cellphones. The instructions were presented to all participants on-screen and were also read aloud to let them know everyone had the same information. Also, at every step during the instruction reading, participants were actively asked if they had any questions and we only proceeded if no one had.\\
     
@@ -280,24 +280,39 @@
     
     \section{Hypotheses}\label{ss:hyp}
     
-     \begin{hyp} \label{hyp:treat}\textit{The mean difference in Probability of Upward Mobility between high and low earners will be decreased in the taxation treatment}\end{hyp}
-     
-     
-     
+    I focus in this thesis on the dynamic of repeated Tullock Contests, in particular regarding the tendencies of participants to over-invest, and the evolution of winning probabilities across periods. As explained in the introduction, those probabilities can be seen as analogous to the Prospect of Upward Mobility while the investments made in each round are analogous to investments made in human capital needed to acquire high earning jobs.\\
+    
+    How investments develop across periods is the first step to analyze the POUM in my experiment. How much participants invest ultimately determines the probabilities of winning, but more importantly, it determines the total welfare of the group. Since available income invested is not reimbursed, investments reduce overall welfare. An intervention that reduces over-investment while ensuring fairer\footnote{The definition and analysis of the concept of fairness go far beyond the scope of the present thesis but are addressed in chapter \ref{ch:conclusion} as part of the \textit{further research} section.} winning probabilities is therefore desirable.\\
+    
+    As described in chapter \ref{ch:model}, investments should be constant over time, however, as \cite{sheremeta2016}, among others, have shown, participants tend to over-invest. I expect, nevertheless, that over-investment decreases over time, due to income effects or to better knowledge of the game. Formally:\\
+    
+     \begin{hyp} \label{hyp:treat}\textit{Mean investments will be higher than the expected profit maximizing value for all treatments, but decreasing over time.}\end{hyp}
+    
+    As it has been described in the literature of rent seeking contests, over-investment can be driven by several aspects, most importantly, impulsiveness, risk incline, competitiveness and inequality aversion. When introducing a redistribution scheme specially the latter characteristic might be affected as income distributions within groups become more equal. Given the fact that the available income is more equally distributed in the treatment by design, if inequality aversion plays a role, I expect investments in the taxed groups to be relatively  lower. Formally:\\
+    
+    \begin{hyp} \label{hyp:treat-overinvest}
+    Participants in the treatment will invest a lower share of their optimal investment
+    \end{hyp}
+    
+    In other words, participants in the treatment will be relatively closer to their optimal investments. Note that the compared measure is the ratio over the optimum since the optimal value of investment is different for both groups. This is because the valuation of the game, that is, the difference in net earnings between the high and the low wage, is different for each group.\\ 
+    
+    I control for risk aversion and impulsiveness with the methods mentioned above in the experimental design (\textit{Cognitive Reflection Test} and \textit{Multiple Price Listing}). Furthermore, if competitiveness plays a major role I should observe no major difference between treatments or across time. What leads to the second part of the hypothesis: not only do I expect investments to be higher than optimal but to be decreasing over time. If that decrease is driven mainly by a better understanding of the game or better knowledge of other participant's behaviour, I should not observe any difference between treatments. In the latter case I would further expect an increase in a participant's belief over the investment AND performance (since performance determines the valuation) of the group's other participants.\\
+    
+    On the other hand, the effect can be driven by an income effect, since in each period only one person wins but two lose. If winners of previous rounds are more likely to invest more and also more likely to win again, losers might to invest less each time.  In this case, I should observe a significant difference between winners and losers and a significant effect of cumulative available income (since people that have won less will have less available income) on the invested amount.\\
+    
+    A third possibility is that participants have a decreasing utility function for winning. In other words, that participants value winning the first round higher than winning the last one. My design does not allow to disentangle this effect from experience effects but the issue is discussed for further research in chapter \ref{ch:results}.\\
       
-      An important corollary of \cref{hyp:treat} is that, since players are closer to the optimum levels of both work supply and investment, total welfare for the group in terms of total income generated is larger.\\
-      
-        To test this hypothesis both groups are compared in each round using a mixed ANOVA design. Dependant variables are the number of seconds spent over the optimum (10 or 20 depending on piece rate) by the group, the share of investment to valuation and total generated income before and after investment.
-        
+    An important corollary of \cref{hyp:treat} is that, since players are closer to the optimum levels of investment, total welfare for the group in terms of total income generated is larger.\\
+    
+    Now, what does the expected lower over-investment for the treatment and the decreasing investments over time mean for the probability of winning? In other words, how do investments change relatively to the other group members in the cross-sectional and longitudinal dimensions?\\
+    
+    If investments decrease over time mainly due to idiosyncratic differences (risk aversion, impulsiveness, etc.) I should not observe any difference between treatments regarding the distribution of probabilities. If, however, the effect is driven by losers, i.e. those with less income, investing relatively less, I should see a stronger variance in the control. In the redistribution treatment, available income will be more equally distributed and income effects should therefore be diminished.\\
+    
+    Furthermore, assuming that investments change in the treatment due to a decrease in inequality and therefore lesser interest in increasing one's income, I would expect a reduced difference in probabilities within the treatment groups. In other words, probabilities will be closer to each other and to the mean of $1/n$. Formally:
     
     \begin{hyp}\label{hyp:wins}
-    \textit{A participant who won the first round of the Tullock Contest will be more likely to have more wins in the control than in the treatment, even after controlling for skill, risk aversion and crt.}
-    \end{hyp}    
-    
-    
-    \begin{hyp}\label{hyp:a} Participants in groups with higher inequality will invest less relatively to their valuation and spend more time in leisure.\end{hyp}
-    
-    To test this hypothesis I determine the inequality level before investment, investment level, and production level of each group and run a panel analysis.
-    
-    
+    \textit{The variance of winning probabilities will be increasing across rounds while being smaller in the treatment.}
+    \end{hyp}
+          
+    To test this hypotheses I need to compare the treatment and control groups over time. Crucially, I need to control for idiosyncratic differences across participants and across groups. Some groups might, for instance, have participants that are inclined to invest more than others and therefore ramp up the investments of all other participants in the group. A linear mixed model, as used for example in \cite{szaszi2018}, allows to study the general effect of the variables of interest while allowing random intercepts for groups and participants. The specific model used are explained in the \textit{results} chapter.\\ 
     

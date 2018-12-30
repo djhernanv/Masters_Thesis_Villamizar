@@ -7,7 +7,7 @@ The model the experiments builds upon is inspired by \cite{koch2017} and aims to
 \begin{equation}
     p(x_i,x_{-i}) =
 \begin{cases}
-    \frac{1}{N},& \text{if } x_i = x_{-i} = 0\\
+    \frac{1}{n},& \text{if } x_i = x_{-i} = 0\\
     \frac{x_i}{x_i + \sum_{j\neq i}^n x_{j}},              & \text{otherwise}
 \end{cases}
 \label{eq:csf}    
@@ -15,7 +15,7 @@ The model the experiments builds upon is inspired by \cite{koch2017} and aims to
 
 \hfill \break
 
-Where $x_i$ is the work supplied by participant $i$ and $N$ the total number of participants. So, if a participant provides, for instance, one fourth of the total work supply, she will have a 25 percent chance of obtaining the high income in the following round.\\
+Where $x_i$ is the work supplied by participant $i$ and $n$ the total number of participants. So, if a participant provides, for instance, one fourth of the total work supply, she will have a 25 percent chance of obtaining the high income in the following round.\\
 
 This model, however, has several drawbacks. Most notably, that the probability of winning depends only on work supply and therefore redistribution has no direct effect on the Prospect of Upward Mobility. Furthermore, it allows for inequality only trough the disincentive of taxation (some participants are taxed relatively more because they earn less), and, due to the dependence between periods, is not solvable analytically.\\ 
 
@@ -26,7 +26,7 @@ To be precise, at the end of period $t$, an individual $i$ has the opportunity t
 \begin{equation}
     p(I_i,I_{-i}) =
 \begin{cases}
-    \frac{1}{2},& \text{if } I_i = I_{-i} = 0\\
+    \frac{1}{n},& \text{if } I_i = I_{-i} = 0\\
     \frac{I_i}{I_i + \sum_{j\neq i}^n I_{j}},              & \text{otherwise}
 \end{cases}
 \label{eq:csf}    
@@ -36,9 +36,9 @@ To be precise, at the end of period $t$, an individual $i$ has the opportunity t
 
 To see how a rational participant would go about deciding her optimal investment, let us consider the simplest case of a game with two periods where the share of total investment at the end of the first period determines the probability of obtaining the prize of a high wage in the second according to the CSF.\\
 
-In the second period, the last in this case, exactly one participant will have a high wage $w_h$ while all others will work with a low wage $w_l$. That means that a participant's $i$ prize, or valuation $\mathbb{V}$ of the game, is equal to the difference in earnings between what she would earn with the high vs. with the low wage. Specifically, $\mathbb{V} = x_i^h*w_h - x_i^l*w_l$, with $x_i^h$ being the work supply by $i$ under the high wage and $x_i^l$ the work supply by $i$ under the low wage. At the end of the first period, participant $i$ has then to choose how much to invest in order to maximize the chances of obtaining the prize $\mathbb{V}$.\\
+In the second period, the last in this case, exactly one participant will have a high wage $w_h$ while all others will work with a low wage $w_l$. That means that a participant $i$'s prize, or valuation $\mathbb{V}$ of the game, is equal to the difference in earnings between what she would earn with the high vs. with the low wage. At the end of the first period, participant $i$ has then to choose how much to invest in order to maximize the chances of obtaining the prize $\mathbb{V}$.\\
 
-In period 1, therefore, a participant wants to maximize her profit $\Pi_i$ according to the optimization problem:
+In period 1 a participant wants therefore to maximize her expected profit $\mathbb{E}\Pi_i$ according to the optimization problem:
 
 \begin{equation}
     \underset{I_i}{\text{max}}\quad\mathbb{E}\Pi_i(I_i,I_j) = \frac{I_i}{I_i + \sum_{j\neq i}^n I_{j}}\mathbb{V} - I_i
@@ -54,7 +54,7 @@ Assuming risk-neutrality and that the valuation $\mathbb{V}$ of the higher wage 
 
 \hfill \break 
 
-The optimal amount of labor supply in the first round will hence depend inversely on the number of participants and directly proportional to the value of the prize.\\
+The optimal amount of investment in the first round will hence depend inversely on the number of participants and directly proportional to the value of the prize.\\
 
 \subsection{Ensuring Opportunity: The Budget Constraint}
 \label{sec:budget_constraint}
@@ -65,7 +65,7 @@ Pilot sessions have shown that in a game with three participants, a high wage of
 
 \subsection{Asymmetric Valuations}
 
-An important conundrum that the here presented approach makes easier to solve is a possible difference in valuation of the prize in terms of higher wage since participants with higher ability or higher utility from consumption will have a higher profit from it. \cite{nti1999} shows that in the two player case:\\
+An important conundrum that the here presented approach makes easier than \cite{koch2017} to solve is a possible difference in valuation of the prize in terms of higher wage since participants with higher ability or higher utility from consumption will have a higher profit from it. \cite{nti1999} shows that in the two player case:\\
 
 \begin{quote}
     "The player who values the prize more expends more effort in equilibrium but both players allocate the same fraction of their valuations to the contest"\footnote{\cite[p.~419]{nti1999}}.
@@ -150,3 +150,8 @@ A look at the function graph \ref{fig:invest_func} gives us a better intuition o
     \label{fig:invest_func}
 \end{figure}
 
+\subsection{Theoretical Predictions}
+
+Regardless of the repetitions of the game, the expected profit maximizing investment for a given player is constant as, first, the valuation of the game is constant across periods, and, second, the invested amount only affects the winning probabilities of the subsequent period.\\
+
+Furthermore, since work supply does not enter the CSF and, as explained in section \ref{sec:budget_constraint}, participants can always afford to invest their optimum, there is no incentive to work more than the profit maximizing amount.
