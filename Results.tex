@@ -2,7 +2,7 @@
 \label{ch:results}
 \thispagestyle{fancy}
 
-All the data preparation, analysis and visualization was done using the statistical software \textit{R} \citep{rcoreteam2014}\footnote{and the packages \textit{dplyr} \citep{wickham2017}, }. 
+All the data preparation, analysis and visualization was done using the statistical software \textit{R} \citep{rcoreteam2014}\footnote{and the packages \textit{tidyverse} \citep{wickham2017b}, \textit{data.table} \citep{dowle2018}, \textit{ineq} \citep{zeileis2014}, \textit{stringer} \citep{wickham2018}, \textit{sjstats} \citep{ludecke2018}, and others which are referenced in due course.}. 
 All data and scripts are available at XXX.XXX.XXX
 
 \section{Descriptive Statistics and General Results}
@@ -164,54 +164,259 @@ In the \textit{Risk Elicitation} task, participants chose in average row 6.6 to 
     \label{fig:hist_mpl}
 \end{figure}
 
+\subsection{Fairness Sentiment}
 
-\subsection{Hypothesis 1}
+Participants did not seem to change their views on the fairness of the game. Figure \ref{fig:fairness_boxplot} shows a boxplot of their assessment at the beginning and at the end of the competition rounds. Table \ref{tab:fair_ols} show a linear regression that shows no apparent significant influence in changing a participant's view on fairness.\\
 
-Since the treatment and control groups have different valuations, I analyze rather the mean difference over optimal investment for both groups. The optimal Investment is calculated on the assumption that participants have the same valuation, which is supported by a t-test.\\
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{fairness_sentiment_boxplot.png}
+    \caption{Fairness Sentiment Voting}
+    \label{fig:fairness_boxplot}
+\end{figure}
+
+
+
+\begin{table}[!htbp] \centering 
+  \caption{OLS Change in Fairness Sentiment} 
+  \label{tab:fair_ols} 
+\begin{tabular}{@{\extracolsep{5pt}}lc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+\\[-1.8ex] & Change in Fairness Sentiment \\ 
+\hline \\[-1.8ex] 
+ treatment & $-$0.183 \\ 
+  & (0.391) \\ 
+  & \\ 
+ payoff & 0.015 \\ 
+  & (0.052) \\ 
+  & \\ 
+ crt score & 0.063 \\ 
+  & (0.188) \\ 
+  & \\ 
+ switching row & 0.013 \\ 
+  & (0.084) \\ 
+  & \\ 
+ gender (Male) & $-$0.181 \\ 
+  & (0.366) \\ 
+  & \\ 
+ valuation & 0.048 \\ 
+  & (0.063) \\ 
+  & \\ 
+ Constant & $-$0.971 \\ 
+  & (1.298) \\ 
+  & \\ 
+  \hline
+Observations & 96 \\ 
+R$^{2}$ & 0.016 \\ 
+Adjusted R$^{2}$ & $-$0.051 \\ 
+Residual Std. Error & 1.733 (df = 89) \\ 
+F Statistic & 0.235 (df = 6; 89) \\ 
+\hline \\[-1.8ex] 
+\textit{Notes:} & \multicolumn{1}{l}{$^{***}$Significant at the 1 percent level.} \\ 
+ & \multicolumn{1}{l}{$^{**}$Significant at the 5 percent level.} \\ 
+ & \multicolumn{1}{l}{$^{*}$Significant at the 10 percent level.} \\ 
+\end{tabular} 
+\end{table} 
+
+\section{Hypotheses}
+
+In this section we have a look at the results regarding, one, the distribution of probabilities and its change across rounds, and, second, the factors affecting the probability of winning for a given individual.
+
+
+\subsection{Hypotheses 1 and 2}
+
+To test this hypothesis, I firstly need to determine the optimal investment value for each participant. Assuming an equal valuation for all participants greatly simplifies the process by allowing to use formula \ref{eq:opt_last}. Running a t-test on the hypothesis that the mean is the same, supports this assumption.
+
+Since the treatment and control groups have different valuations, I analyze rather the mean difference over optimal investment for both groups.\\
 
 Consistent with expectations, participants bid significantly more than their optimum but decreasingly so over time. Interestingly, participants in the taxation treatment invest both nominally and relatively more than those in the control, with treatment participants bidding in average 5 and a half times their optimal investment in the first round and 2.3 times their optimum in the last round. Participants in the control, on the other hand, invest from 1.93 times their optimum in the first round, to 1.36 times in the last round.\\
 
 
-\begin{figure}[H]
+\begin{figure}
     \centering
     \includegraphics[width=\textwidth]{graphs/over_invest.png}
     \caption{Ratio of Over Investment per Round}
     \label{fig:over_invest}
 \end{figure}
 
-Table \ref{tab:over_invest} present a linear mixed model dissecting the most important effects on over investing. The random effects are \textit{participant, group} and \textit{gender}.
+Table \ref{tab:over_invest} present a linear mixed model dissecting the most important effects on over investing. The random effects are \textit{participants} nested in the \textit{group}.\\
 
-\begin{table}[!htbp] \centering 
+\begin{table} \centering 
   \caption{Linear Mixed Model Over Investment Ratio} 
-  \label{tab:over_invest} 
+  \label{tab:over_invest}
+  \scalebox{0.7}{%
 \begin{tabular}{@{\extracolsep{5pt}}lcc} 
 \\[-1.8ex]\hline 
 \hline \\[-1.8ex] 
 \\[-1.8ex] & \multicolumn{2}{c}{Ratio of Investment Over Optimum} \\ 
 \\[-1.8ex] & (1) & (2)\\ 
 \hline \\[-1.8ex] 
- Treatment(True) & 2.314$^{***}$ & 2.049$^{***}$ \\ 
+ treatment & 2.314$^{***}$ & 2.075$^{***}$ \\ 
   & (0.698) & (0.678) \\ 
   & & \\ 
- Round & $-$0.307$^{***}$ & $-$0.307$^{***}$ \\ 
+ round & $-$0.307$^{***}$ & $-$0.307$^{***}$ \\ 
   & (0.055) & (0.055) \\ 
   & & \\ 
- Was Winner in Previous & 0.256 & 0.283 \\ 
+ was winner & 0.256 & 0.281 \\ 
   & (0.271) & (0.271) \\ 
   & & \\ 
- CRT Score &  & $-$0.157 \\ 
-  &  & (0.283) \\ 
+ CRT score &  & $-$0.183 \\ 
+  &  & (0.289) \\ 
   & & \\ 
- MPL &  & $-$0.371$^{***}$ \\ 
-  &  & (0.125) \\ 
+ switching row &  & $-$0.375$^{***}$ \\ 
+  &  & (0.126) \\ 
   & & \\ 
- Constant & 2.813$^{***}$ & 5.737$^{***}$ \\ 
-  & (0.546) & (1.088) \\ 
+ gender (Male) &  & 0.284 \\ 
+  &  & (0.583) \\ 
   & & \\ 
+ Constant & 2.813$^{***}$ & 5.689$^{***}$ \\ 
+  & (0.546) & (1.097) \\ 
+  & & \\ 
+  \hline
+  \hline
 Observations & 672 & 672 \\ 
-Log Likelihood & $-$1,751.726 & $-$1,748.247 \\ 
-Akaike Inf. Crit. & 3,519.453 & 3,516.495 \\ 
-Bayesian Inf. Crit. & 3,555.535 & 3,561.597 \\ 
+Log Likelihood & $-$1,751.726 & $-$1,747.753 \\ 
+Akaike Inf. Crit. & 3,517.453 & 3,515.506 \\ 
+Bayesian Inf. Crit. & 3,549.024 & 3,560.608 \\
+\hline
+Var: participant|group (Intercept) & 5.66 &     5.17     \\
+Var: group (Intercept)           & 1.62  &    1.48    \\
+Var: Residual                              & 8.14   &   8.14    \\
+\hline \\[-1.8ex] 
+\textit{Notes:} & \multicolumn{2}{l}{$^{***}$Significant at the 1 percent level.} \\ 
+ & \multicolumn{2}{l}{$^{**}$Significant at the 5 percent level.} \\ 
+ & \multicolumn{2}{l}{$^{*}$Significant at the 10 percent level.} \\ 
+\end{tabular}
+}
+\end{table}
+
+The first and second models have a total explanatory power of around 52\% (conditional r-squared) in which the fixed effects of the first explain 10.03\% and the second 14.5\% of the variance (marginal r-squared). The effect of the treatment is significant and large for both models with participants investing, contrary to hypothesis \ref{hyp:treat-overinvest} almost double as much as the control. Round repetition and risk averse behavior have both a significant although relatively small effect in an expected negative direction. The CRT score and whether a participant was playing with a high wage did not have a significant effect on the over investment ratio.\\
+
+A visual analysis of the residuals, as well as several normality test, strongly reject the assumption of normality.\\
+
+A possibility is that participants apply a heuristic of a fix proportion of available income for investment. Running a similar regression as above on the investment ratio of available income in fact deletes the effect of all fixed effects but time, suggesting that participants tend to invest the same amount of their available income, regardless of their earnings or idiosyncratic features.\\
+
+A Wilcoxon rank test suggest that in fact total welfare is larger in the treatment than in the control. Higher welfare in the treatment seems to be driven by working closer to the optimum while at the same time investing less.
+
+\subsection{Hypothesis 3}
+
+In terms of probabilities, I am interested in how its distribution change. Of course, the mean probability of earning the high wage is always equal to $1/n$, but its distribution can vary from exactly $1/n$ for each participant, to only one person in the group having a probability of 1 and all the rest a probability of 0. Figure \ref{fig:dens_prob} shows the density plots for each round. A completely equal distribution would have its maximum at 0.33 with no values around it, while a completely unequal distribution would see two peaks at each extreme with the one at 0 being twice the size of the the one at 1.\\
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = \textwidth]{graphs/density_ridge_prob.png}
+    \caption{Density Plots of Probability across Rounds}
+    \label{fig:dens_prob}
+\end{figure}
+
+Figure \ref{fig:dens_prob} seems in fact to show an increase of density at the ends of the distribution with round 1 having a rather flat shape and round 8 stronger peaks at both 0 and 1 probability. To test if the distribution of probabilities between the treatments really differ, I use the coefficient of variation as for instance in XXXX, It is a measure widely used in economics, sociology and natural sciences, and as XXX recommends, appropiate to use in cases where there is a relatively exact measure of the values. Figure \ref{fig:var_coeff_boxplot} shows a box plot of the coefficient of variations across rounds for both treatments. In fact, it seems to increase across rounds but not significantly so between treatments.\\
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = \textwidth]{graphs/var_coeff_prob_boxplot.png}
+    \caption{Boxplot Coefficient of Variation}
+    \label{fig:var_coeff_boxplot}
+\end{figure}
+
+Table \ref{tab:var_coeff_ols} shows the results for an OLS regression of two models explaining the difference across groups in the coefficient of variation for the probabilities of winning. A linear mixed model is left out here since each group is part of only one treatment and the variables are all aggregated at the group level. Only round repetition appears to have a significant, although small effect (in our setting, the coefficient of variance can fluctuate between 0 and 1.73). Idiosyncratic group values like the mean value of valuation, CRT score or risk aversion do not play a significant role in the variation of probabilities. Taxation and redistribution also do not play a role. In other words, introducing a redistribution scheme does not avoid the fact that, with time, the distribution of probabilities will go to extremes with some participants having most of the chance to win and the rest having almost none.\\
+
+
+\begin{table}[!htbp] \centering 
+  \caption{OLS Coefficient of Variation} 
+  \label{tab:var_coeff_ols} 
+\begin{tabular}{@{\extracolsep{5pt}}lcc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+\\[-1.8ex] & \multicolumn{2}{c}{Probability Coefficient of Variation} \\ 
+\\[-1.8ex] & (1) & (2)\\ 
+\hline \\[-1.8ex] 
+ treatment & $-$0.025 & $-$0.031 \\ 
+  & (0.063) & (0.065) \\ 
+  & & \\ 
+ round & 0.043$^{***}$ & 0.043$^{***}$ \\ 
+  & (0.016) & (0.016) \\ 
+  & & \\ 
+ mean CRT score &  & 0.092 \\ 
+  &  & (0.059) \\ 
+  & & \\ 
+ mean switching row &  & $-$0.020 \\ 
+  &  & (0.025) \\ 
+  & & \\ 
+ mean valuation &  & $-$0.033 \\ 
+  &  & (0.023) \\ 
+  & & \\ 
+ Constant & 0.856$^{***}$ & 1.218$^{***}$ \\ 
+  & (0.077) & (0.338) \\ 
+  & & \\
+  \hline
+Observations & 224 & 224 \\ 
+R$^{2}$ & 0.034 & 0.053 \\ 
+Adjusted R$^{2}$ & 0.025 & 0.031 \\ 
+Residual Std. Error & 0.468 (df = 221) & 0.467 (df = 218) \\ 
+F Statistic & 3.857$^{**}$ (df = 2; 221) & 2.431$^{**}$ (df = 5; 218) \\ 
+\hline \\[-1.8ex] 
+\textit{Notes:} & \multicolumn{2}{l}{$^{***}$Significant at the 1 percent level.} \\ 
+ & \multicolumn{2}{l}{$^{**}$Significant at the 5 percent level.} \\ 
+ & \multicolumn{2}{l}{$^{*}$Significant at the 10 percent level.} \\ 
+\end{tabular} 
+\end{table}
+
+Of course, this does not tell us much about what determines the probability of a given participant to win a contest. To analyze it, I suggest again a linear mixed model although this time a generalized mixed model from a beta distribution. Table \ref{tab:glm_prob} shows the results.\\
+
+The only variable that shows a significant, although small, effect on the probability of winning is the size of the available income. Note in particular, that neither the treatment, nor having won alone have significant effect on the probability of winning.\\
+
+\begin{table}[!htbp] \centering 
+  \caption{GLMM Probability of Winning} 
+  \label{tab:glm_prob} 
+\begin{tabular}{@{\extracolsep{5pt}}lcc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+\\[-1.8ex] & \multicolumn{2}{c}{Probability of Winning} \\ 
+\\[-1.8ex] & (1) & (2)\\ 
+\hline \\[-1.8ex] 
+ treatment & $-$0.139 &  $-$0.087241 \\ 
+  & (0.22) & (0.218) \\ 
+  & & \\ 
+ available income & 0.045$^{***}$ & 0.045$^{***}$ \\ 
+  & (0.008) & (0.008) \\ 
+  & & \\ 
+ was winner & $-$0.084 &  $-$0.083 \\ 
+  & (0.119) & (0.119) \\ 
+  & & \\ 
+ gender (male) &  & 0.356 \\ 
+  &  & (0.223) \\ 
+  & & \\ 
+ CRT Score &  & $-$0.051 \\ 
+  &  & (0.113) \\ 
+  & & \\ 
+ switching row & & $-$0.034 \\ 
+  &  & (0.049) \\ 
+  & & \\ 
+ valuation &  & 0.056 \\ 
+  &  & (0.038) \\ 
+  & & \\ 
+ mean investment belief &  & 0.003 \\ 
+  &  & (0.008) \\ 
+  & & \\ 
+ Constant & $-$1.413$^{***}$ & $-$2.454$^{***}$ \\ 
+  & (0.209) & (0.647) \\ 
+  & & \\ 
+  \hline
+Observations & 672 & 672 \\ 
+Log Likelihood & 3798.4 & 3801.0 \\ 
+Akaike Inf. Crit. & $-$7580.9 & $-$7575.9 \\ 
+Bayesian Inf. Crit. & $-$7544.8 & $-$7517.3 \\
+\hline
+Num. groups: participant:group     & 96     &   96   \\
+Num. groups: group               & 32      &    32  \\
+Num. groups: round                         & 7   & 7        \\
+\hline
+Var: participant:group (Intercept) & 0.93   & 0.02     \\
+Var: group (Intercept)           & 0.00   & 0.00     \\
+Var: round (Intercept)           & 0.00    & 0.00    \\
+Var: Residual                    & 0.00     &  0.02  \\
+\hline
 \hline \\[-1.8ex] 
 \textit{Notes:} & \multicolumn{2}{l}{$^{***}$Significant at the 1 percent level.} \\ 
  & \multicolumn{2}{l}{$^{**}$Significant at the 5 percent level.} \\ 
