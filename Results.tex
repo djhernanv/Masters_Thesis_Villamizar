@@ -2,11 +2,33 @@
 \label{ch:results}
 \thispagestyle{fancy}
 
-All the data preparation, analysis and visualization was done using the statistical software \textit{R} \citep{rcoreteam2014}\footnote{and the packages \textit{tidyverse} \citep{wickham2017b}, \textit{data.table} \citep{dowle2018}, \textit{ineq} \citep{zeileis2014}, \textit{stringer} \citep{wickham2018}, \textit{sjstats} \citep{ludecke2018}, and others which are referenced in due course.}. 
-All data and scripts are available at XXX.XXX.XXX
+    Although ANOVA models are commonly used in behavioral sciences when analyzing treatment differences in repeated measures, several authors have question their adequacy (\cite{camilli1987}, \cite{vasey1987}, \cite{jaeger2008}, \cite{locker2007}, \cite{krueger2004}). Specially critical in my design is the fact that participants are matched in groups which do not change during the experiment but may develop their own dynamic. Imagine for instance a group in which the majority of participants are very risk friendly or have a high valuation. Investments might increase in total, even for those participants that are not as risk friendly.\\ 
+    
+    Instead, linear mixed models as used for instance in \cite{szaszi2018}, \cite{holsen2009} or \cite{yue2010} are encouraged since they allow to study the general effect of the variables of interest while allowing random intercepts for groups and participants while taking into account the auto-correlation of the repeated measure (\cite{galecki2013}, \cite{bolker2009}, \cite{mcculloch2015}, \cite{barr2013}, \cite{baayen2008}, \cite{fitzmaurice2015}). I therefore generally use a linear mixed model specification to be compared against a so-called "fixed effects" only model in the result analysis below. If not indicated otherwise, I chose the model using Akaike's Information Criterion.\\
 
-\section{Descriptive Statistics and General Results}
+    All the data preparation, analysis and visualization was done using the statistical software \textit{R}\footnote{and the packages \textit{tidyverse} \citep{wickham2017b}, \textit{data.table} \citep{dowle2018}, \textit{ineq} \citep{zeileis2014}, \textit{stargazer} \citep{hlavac2018}, \textit{ggplot2} \citep{wickham2016}, \textit{sjstats} \citep{ludecke2018}, \textit{texreg} \citep{leifeld2013}, \textit{ggthemes} \citep{arnold2018}, \textit{ggridges} \citep{wilke2018}, and others which are referenced in due course.} \citep{rcoreteam2014}. All data, scripts and results are available at XXX.XXX.XXX, even those that for space reasons were not included in the print version of this thesis.
 
+\section{Benchmarking }
+
+During the benchmarking rounds, participants solved around 10 sequences with the piece rate of one token per sequence. With the high piece rate of two tokens per sequence, participants solved an average of 15.3 sequences. The mean valuation, that is, the mean difference between the earnings (income from solving sequences plus income from the leisure mode) in the low and the high piece rate were of around 13 tokens. Table \ref{tab:avg_prod_bench} summarises this findings.\\
+
+\begin{table}[!htbp] \centering 
+  \caption{Mean Values of Production in Benchmark} 
+  \label{tab:avg_prod_bench} 
+\begin{tabular}{@{\extracolsep{5pt}} cccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+treatment & avg. prod. low wage & avg. prod. high wage & mean valuation \\ 
+\hline \\[-1.8ex] 
+0 & 9.77 & 15.29 & 12.9 \\ 
+1 & 10.25 & 15.29 & 13.09 \\ 
+\hline \\[-1.8ex] 
+\end{tabular} 
+\end{table} 
+
+\section{Competition}
+\subsection{Sequence Production \& Income}
+\label{sec:seq_prod}
 Participants solved an average of 11.5 sequences in the competition rounds and spent an average of 85.2 seconds in the \textit{switch} mode. There was little difference in production between wages, i.e. between winners and losers, but some difference can be observed between treatments. Subjects in the treatment produced less in average and spent more time in the \textit{switch} mode. Table \ref{tab:avg_prod} and graph \ref{fig:production_boxplot} summarize these findings.\\
 
 \begin{table}[!htbp] \centering
@@ -37,12 +59,13 @@ treatment & wage & mean solved sequences & mean of time spent in switch \\
     \label{fig:production_boxplot}
 \end{figure}
 
-\subsection{Sequence Production \& Income}
-To see if the difference in production between the treatments is statistically significant, and to see how other factors play a role, I used a linear mixed model with random intercepts evaluated using the \textit{R} package \textit{lmer} \citep{bates2015}. I chose this model since it offers more flexibility than a traditional ANOVA analysis. Specially important for my design is the fact that it allows to have a random intercept for each subject and nesting in the group, since we might expect that certain participants tend to work and invest more than others and that that affects the overall performance of the group. Since the design allows only for between-groups comparisons regarding the treatment, I exclude a random slope per participant, assuming thus that the effect of time will be equivalent for all subjects.\\
+To see if the difference in production between the treatments is statistically significant, and to see how other factors play a role, I used a linear mixed model (LMM) with random intercepts evaluated using the \textit{R} package \textit{lme4} \citep{bates2015}. Since the design allows only for between-groups comparisons regarding the treatment, I exclude a random slope per participant, assuming thus that the effect of time will be equivalent for all subjects.\\ 
 
-In this model, the fixed effects are the \textit{treatment}, \textit{was winner} (if a participant won the previous round and is playing with the high wage), and the \textit{round} number. The random effect is the \textit{subjects id} nested within the \textit{group}. Results are reported following largely \cite{barr2013} and are summarized in table \ref{table:lmer_prod}. P-values were calculated using the likelihood ratio test.\\
+In this model, the fixed effects are the \textit{treatment}, \textit{was winner} (if a participant won the previous round and is playing with the high wage), and the \textit{round} number. The random effect is the \textit{subjects id} nested within the \textit{group}. Results are reported following largely \cite{barr2013} and are summarized in table \ref{table:lmer_prod}. P-values were calculated using the likelihood ratio test of the \textit{R} package \textit{lmerTest} \citep{kuznetsova2017}.\\
 
-The residual plot and qq-plot do not make apparent any deviation from a normal distribution nor any systematic increase or decrease in variance. \textit{Treatment} has a small although significant effect at the 0.1 level with subjects in the control group solving just shy of 1 sequence more. All the other fixed effects have no significant or large effect with the model in total explaining 42\% of the observed variance (conditional R-squared) in which the fixed effects explain 1.52\% (marginal r-squared). This includes, interestingly, the wage at which participants played.\\
+\textit{Treatment} has a small although significant effect at the 0.1 level with subjects in the control group solving just shy of 1 sequence more per round. All the other fixed effects have no significant or large effect with the model in total explaining 42\% of the observed variance in which the fixed effects explain 1.52\% (conditional R-squared and marginal r-squared respectively, calculated using the \textit{psycho} package \citep{makowski2018}). This includes, interestingly, the wage at which participants played.\\
+
+Note that although the residual plot and qq-plot do not make apparent any deviation from a normal distribution nor any systematic increase or decrease in variance, there is much debate as to how to appropriately check for the validity of assumptions in LMMs  \citep{loy2017}, specially when dealing with distributions other than normal, and will therefore be left out for now in this thesis.\\
 
 \begin{table}[!htbp] \centering 
   \caption{Linear Mixed Model - Sequence Production} 
@@ -83,12 +106,11 @@ Var: Residual & 7.28 \\
 }
 \end{table} 
 
-In this experimental design, earnings are not exclusively determined by the amount of sequences solved. It depends also on time spent in the \textit{switch} mode and therefore on the optimal change to it; the invested amount and, in the treatment, how much the other players worked. The boxplot in figure \ref{fig:earnings_boxplot} seems to suggest that net income is higher in the treatment groups and that, apart from round 1, they do not change over time. Note that net income describes here income after taxation AND redistribution but before investment. To see if there were differences are significant, I use a model similar to the one explained above. With fixed effects \textit{treatment, was winner} and \textit{round}. Table \ref{table:earnings_lmer} summarizes the findings.\\
+Remember that in this experimental design, payoffs are not exclusively determined by the amount of sequences solved. They depend also on time spent in the \textit{switch} mode and therefore on the optimal change to it; the invested amount in human capital, and, in the treatment, how much the other players worked. The boxplot in figure \ref{fig:earnings_boxplot} seems to suggest that net income is higher in the treatment groups and that, apart from round 1, they do not change over time. Note that net income describes here income after taxation AND redistribution but before investment. To see if there were significant differences, I use a model with fixed effects \textit{treatment, was winner} and \textit{round} and summarise the findings in table \ref{table:earnings_lmer}.\\
 
-Winning the previous round, i.e. playing with the high wage has a strong and significant effect on net income while time, although slightly significant, has only a small effect. The introduction of a tax and redistribution, on the other hand, does not have a significant effect. The model helps explaining 50.11\% (restricted r-squared) of the variance with the fixed effects accounting for 33.73\% (marginal r-squared) of the variance. The residual plot and qq-plot do not make apparent any deviation from a normal distribution nor any systematic increase or decrease in variance.\\
+Winning the previous round, i.e. playing with the high wage has a strong and significant effect on net income while time, although slightly significant, has only a small effect. The introduction of a tax and redistribution, on the other hand, does not have a significant effect. The model helps explaining 50.11\% (restricted r-squared) of the variance with the fixed effects accounting for 33.73\% (marginal r-squared) of the variance.\\
 
-A discussion about why the treatment fails to show an impact on net income is well beyond the scope of this thesis but it is addressed in the \textit{further research} section in chapter \ref{ch:conclusion}.
-
+Notice that while the taxation treatment has a negative impact on the number of sequences solved, it has a non-significant positive effect on net income. This is an indication that participants were over-performing in the control and, when confronted with a redistribution scheme, diminished their production such that the moment of switching to the leisure mode was closer to the optimum. Thus, earning relatively equal despite the effective tax rate of 40\%.\\
 
 \begin{figure}
     \centering
@@ -139,16 +161,18 @@ Var: Residual                              & 11.77         \\
 
 
 \subsection{Optimum of Work Supply}
-During the competition, participants tend to work more than their optimum, but decreasingly so with each round. Remember, participants should switch as soon as the time they need to solve a given task surpasses the earnings in the switch mode for the corresponding time. In the control group, players with the low wage should change as soon as they take longer than 10 seconds to solve the task, in the treatment, as soon as they need more than six seconds. In each treatment, players with the high wage should switch at twice the time. Graph X shows the time needed for each task per round and marks the 10 and 20 seconds cutoffs.\\ 
+During the competition, participants tend to work more than their optimum. Remember, participants should switch as soon as the time they need to solve a given task surpasses the earnings in the switch mode for the corresponding time. In the control group, players with the low wage should change as soon as they take longer than 10 seconds to solve the task, in the treatment, as soon as they need more than six seconds. In each treatment, players with the high wage should switch at twice the respective time. Graph \ref{fig:time_per_task} shows the time needed for each task per round and marks the 10 and 20 seconds cutoffs.\\
+
+It seems in fact as if the time needed to solve each sequence is more compressed to the middle in the treatment. Table \ref{table:earnings_lmer} offers a strong indication in this direction as explained at the end of section \ref{sec:seq_prod}. However, a Wilcoxon test cannot reject the null hypothesis (p: 0.283) of no shift regarding the overall seconds over the 10 or 20 cutoffs. In chapter \ref{ch:conclusion} I address a design change that could make it easier to identify if there are general changes to the switching point when taxation is introduced.\\
 
 \begin{figure}
     \centering
-    \includegraphics[width=\textwidth]{graphs/time_per_task.png}
+    \includegraphics[width=\textwidth]{graphs/time_task_grid.png}
     \caption{Count of Choice of Switching Row}
     \label{fig:time_per_task}
 \end{figure}
 
-Valuation avg \\
+\section{Controls}
 
 \subsection{Cognitive Reflection Test}
 In the \textit{Cognitive Reflection Test}, participants answered, out of 4, in average 2.22 (s.e. 0.1) questions correctly. Men answered in average 0.3 (s.e. 0.15) more questions correctly with women giving 2.09 (s.e. 0.13) right answers in average.\\
@@ -170,7 +194,7 @@ Participants did not seem to change their views on the fairness of the game. Fig
 
 \begin{figure}
     \centering
-    \includegraphics[width=\textwidth]{fairness_sentiment_boxplot.png}
+    \includegraphics[width=\textwidth]{graphs/fairness_sentiment_boxplot.png}
     \caption{Fairness Sentiment Voting}
     \label{fig:fairness_boxplot}
 \end{figure}
@@ -219,16 +243,19 @@ F Statistic & 0.235 (df = 6; 89) \\
 \end{tabular} 
 \end{table} 
 
-\section{Hypotheses}
+\section{Hypotheses Testing}
 
-In this section we have a look at the results regarding, one, the distribution of probabilities and its change across rounds, and, second, the factors affecting the probability of winning for a given individual.
+In this section we will have a look at the results regarding, one, the distribution of probabilities and its change across rounds, and, second, the factors affecting the probability of winning for a given individual according to the hypotheses postulated in section \ref{ss:hyp}.
 
 
 \subsection{Hypotheses 1 and 2}
 
-To test this hypothesis, I firstly need to determine the optimal investment value for each participant. Assuming an equal valuation for all participants greatly simplifies the process by allowing to use formula \ref{eq:opt_last}. Running a t-test on the hypothesis that the mean is the same, supports this assumption.
+\textbf{Hypothesis \ref{hyp:treat}} \textit{Mean investments will be higher than the expected profit maximizing value for all treatments, but decreasing over time.}\\ 
+\textbf{Hypothesis \ref{hyp:treat-overinvest}} \textit{Participants in the treatment will invest a lower share of their optimal investment}
 
-Since the treatment and control groups have different valuations, I analyze rather the mean difference over optimal investment for both groups.\\
+To test this hypotheses, I firstly need to determine the optimal investment value for each participant. Assuming an equal valuation for all participants greatly simplifies the process by allowing to use formula \ref{eq:opt_last}. Running a t-test on the hypothesis that the average valuation is the same, supports this assumption.\\
+
+Furthermore, since the treatment and control groups have different valuations, to easier interpret the results I analyze the mean difference over optimal investment for both groups instead of the nominal amount of over-investment. Note that in comparison to table \ref{tab:avg_prod_bench}, the valuation for the treated groups is calculated from the difference in the taxed benchmark rounds as explained in section \ref{ss:tax_bench}.\\
 
 Consistent with expectations, participants bid significantly more than their optimum but decreasingly so over time. Interestingly, participants in the taxation treatment invest both nominally and relatively more than those in the control, with treatment participants bidding in average 5 and a half times their optimal investment in the first round and 2.3 times their optimum in the last round. Participants in the control, on the other hand, invest from 1.93 times their optimum in the first round, to 1.36 times in the last round.\\
 
@@ -240,7 +267,7 @@ Consistent with expectations, participants bid significantly more than their opt
     \label{fig:over_invest}
 \end{figure}
 
-Table \ref{tab:over_invest} present a linear mixed model dissecting the most important effects on over investing. The random effects are \textit{participants} nested in the \textit{group}.\\
+Table \ref{tab:over_invest} present a linear mixed model dissecting the most important effects on over-investing. The random effects are \textit{participants} nested in the \textit{group}.\\
 
 \begin{table} \centering 
   \caption{Linear Mixed Model Over Investment Ratio} 
@@ -291,13 +318,22 @@ Var: Residual                              & 8.14   &   8.14    \\
 }
 \end{table}
 
-The first and second models have a total explanatory power of around 52\% (conditional r-squared) in which the fixed effects of the first explain 10.03\% and the second 14.5\% of the variance (marginal r-squared). The effect of the treatment is significant and large for both models with participants investing, contrary to hypothesis \ref{hyp:treat-overinvest} almost double as much as the control. Round repetition and risk averse behavior have both a significant although relatively small effect in an expected negative direction. The CRT score and whether a participant was playing with a high wage did not have a significant effect on the over investment ratio.\\
+The first and second models have a total explanatory power of around 52\% (conditional r-squared) in which the fixed effects of the first explain 10.03\% and the second 14.5\% of the variance (marginal r-squared). The effect of the treatment is significant and large for both models with participants investing, contrary to hypothesis \ref{hyp:treat-overinvest} almost double as much as the control. Round repetition and risk averse behavior have both a significant although relatively small effect in the expected negative direction. The CRT score and whether a participant was playing with a high wage did not have a significant effect on the over-investment ratio.\\
 
-A visual analysis of the residuals, as well as several normality test, strongly reject the assumption of normality.\\
+Figure \ref{fig:beliefs_smooth} shows a reduction in the mean over-estimation of investments by the other group participants indicating better knowledge of other's behaviour. It is nevertheless surprising how little accuracy participants appear to reach after playing seven rounds and having been shown all relevant information.\\
 
-A possibility is that participants apply a heuristic of a fix proportion of available income for investment. Running a similar regression as above on the investment ratio of available income in fact deletes the effect of all fixed effects but time, suggesting that participants tend to invest the same amount of their available income, regardless of their earnings or idiosyncratic features.\\
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{graphs/beliefs_smooth_lm.png}
+    \caption{Mean Over or Under-estimation of other's investments by group and round}
+    \label{fig:beliefs_smooth}
+\end{figure}
 
-A Wilcoxon rank test suggest that in fact total welfare is larger in the treatment than in the control. Higher welfare in the treatment seems to be driven by working closer to the optimum while at the same time investing less.
+A possibility for why participants in the treatment invest relatively more is that participants apply a heuristic of a fix proportion of available income for investment. Running a similar regression as above on the investment ratio of available income in fact deletes the effect of all fixed effects but time, suggesting that participants tend to invest the same amount of their available income, regardless of their earnings or idiosyncratic features.\\
+
+A Wilcoxon rank test (p: 0.01) suggests that in fact total welfare (the total amount of tokens payed out during competition) is larger in the treatment than in the control. Higher welfare in the treatment seems to be driven by working closer to the optimum. Adding the gini coefficient of the available income to the model in table \ref{tab:over_invest} does not show any significance of inequality nor does it change the remaining coefficients. This strengthens the idea that the higher investment in the treatment is due to a fixed investment share heuristic.\\
+
+
 
 \subsection{Hypothesis 3}
 
