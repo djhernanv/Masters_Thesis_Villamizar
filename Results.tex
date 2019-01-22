@@ -108,7 +108,7 @@ Var: Residual & 7.28 \\
 
 Remember that in this experimental design, payoffs are not exclusively determined by the amount of sequences solved. They depend also on time spent in the \textit{switch} mode and therefore on the optimal change to it; the invested amount in human capital, and, in the treatment, how much the other players worked. The boxplot in figure \ref{fig:earnings_boxplot} seems to suggest that net income is higher in the treatment groups and that, apart from round 1, they do not change over time. Note that net income describes here income after taxation AND redistribution but before investment. To see if there were significant differences, I use a model with fixed effects \textit{treatment, was winner} and \textit{round} and summarise the findings in table \ref{table:earnings_lmer}.\\
 
-Winning the previous round, i.e. playing with the high wage has a strong and significant effect on net income while time, although slightly significant, has only a small effect. The introduction of a tax and redistribution, on the other hand, does not have a significant effect. The model helps explaining 50.11\% (restricted r-squared) of the variance with the fixed effects accounting for 33.73\% (marginal r-squared) of the variance.\\
+Winning the previous round, i.e. playing with the high wage has a strong and significant effect on net income while time, although slightly significant, has only a small effect. The introduction of a tax and redistribution scheme, on the other hand, does not have a significant effect. The model helps explaining 50.11\% (restricted r-squared) of the variance with the fixed effects accounting for 33.73\% (marginal r-squared) of the variance.\\
 
 Notice that while the taxation treatment has a negative impact on the number of sequences solved, it has a non-significant positive effect on net income. This is an indication that participants were over-performing in the control and, when confronted with a redistribution scheme, diminished their production such that the moment of switching to the leisure mode was closer to the optimum. Thus, earning relatively equal despite the effective tax rate of 40\%.\\
 
@@ -179,7 +179,7 @@ In the \textit{Cognitive Reflection Test}, participants answered, out of 4, in a
 
 
 \subsection{Risk Elicitation Task}
-In the \textit{Risk Elicitation} task, participants chose in average row 6.6 to switch which according to table \ref{table:HL} indicates a risk averse to very risk averse behaviour. Men generally showed a more risk averse behaviour, switching in average at row 6.93 (s.e. 0.32), while women switched in average already at row 6.36 (s.e. 0.33). Figure \ref{fig:hist_mpl} shows a histogram of the row at which participants switched.\\
+In the \textit{Risk Elicitation} task, participants chose in average row 6.6 to switch, which according to table \ref{table:HL} indicates a risk averse to very risk averse behaviour. Men generally showed a more risk averse behaviour, switching in average at row 6.93 (s.e. 0.32), while women switched in average already at row 6.36 (s.e. 0.33). Figure \ref{fig:hist_mpl} shows a histogram of the row at which participants switched.\\
 
 \begin{figure}
     \centering
@@ -190,7 +190,7 @@ In the \textit{Risk Elicitation} task, participants chose in average row 6.6 to 
 
 \subsection{Fairness Sentiment}
 
-Participants did not seem to change their views on the fairness of the game. Figure \ref{fig:fairness_boxplot} shows a boxplot of their assessment at the beginning and at the end of the competition rounds. Table \ref{tab:fair_ols} show a linear regression that shows no apparent significant influence in changing a participant's view on fairness.\\
+Participants did not seem to change their views on the fairness of the game. Figure \ref{fig:fairness_boxplot} shows a boxplot of their assessment at the beginning and at the end of the competition rounds. Table \ref{tab:fair_ols} shows a linear regression that shows no apparent significant influence in changing a participant's view on fairness.\\
 
 \begin{figure}
     \centering
@@ -251,13 +251,29 @@ In this section we will have a look at the results regarding, one, the distribut
 \subsection{Hypotheses 1 and 2}
 
 \textbf{Hypothesis \ref{hyp:treat}} \textit{Mean investments will be higher than the expected profit maximizing value for all treatments, but decreasing over time.}\\ 
-\textbf{Hypothesis \ref{hyp:treat-overinvest}} \textit{Participants in the treatment will invest a lower share of their optimal investment}
+\textbf{Hypothesis \ref{hyp:treat-overinvest}} \textit{Participants in the treatment will invest a lower share of their optimal investment}\\
 
-To test this hypotheses, I firstly need to determine the optimal investment value for each participant. Assuming an equal valuation for all participants greatly simplifies the process by allowing to use formula \ref{eq:opt_last}. Running a t-test on the hypothesis that the average valuation is the same, supports this assumption.\\
+To test this hypotheses, I firstly need to determine the optimal investment value for each participant. Assuming an equal valuation for all participants in a given treatment greatly simplifies the process by allowing to use formula \ref{eq:opt_last}. Running a t-test on the hypothesis that the distance to the mean is 0, supports this assumption (p: 1 for control and p: 0.85 for the treatment).\\
 
 Furthermore, since the treatment and control groups have different valuations, to easier interpret the results I analyze the mean difference over optimal investment for both groups instead of the nominal amount of over-investment. Note that in comparison to table \ref{tab:avg_prod_bench}, the valuation for the treated groups is calculated from the difference in the taxed benchmark rounds as explained in section \ref{ss:tax_bench}.\\
 
-Consistent with expectations, participants bid significantly more than their optimum but decreasingly so over time. Interestingly, participants in the taxation treatment invest both nominally and relatively more than those in the control, with treatment participants bidding in average 5 and a half times their optimal investment in the first round and 2.3 times their optimum in the last round. Participants in the control, on the other hand, invest from 1.93 times their optimum in the first round, to 1.36 times in the last round.\\
+Participants appear to invest less with each round as the histogram in graph \ref{fig:invest_hist} shows. Several participants indeed do not invest anything at all and this number increases with each repetition. Leading to the patter shown in figure \ref{fig:invest_prob_point}. With increasing rounds, the relationship between the invested amounts and the probability obtained grew apart. On the one hand with each round there were more high investments, while, on the other hand, more low investments achieved a high probability of winning.\\
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{graphs/investment_amount_hist.png}
+    \caption{Histogram of investment amounts faceted by round. The red line demarks the median of the distribution.}
+    \label{fig:invest_hist}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{graphs/invest_prob_point.png}
+    \caption{Plot of the probability achieved by a given investment faceted by round}
+    \label{fig:invest_prob_point}
+\end{figure}
+
+Consistent with expectations, participants bid in average significantly more than their optimum but decreasingly so over time. Interestingly, participants in the taxation treatment invest both nominally and relatively more than those in the control, with treatment participants bidding in average 5 and a half times their optimal investment in the first round and 2.3 times their optimum in the last round. Participants in the control, on the other hand, invest from 1.93 times their optimum in the first round, to 1.36 times in the last round.\\
 
 
 \begin{figure}
@@ -318,9 +334,9 @@ Var: Residual                              & 8.14   &   8.14    \\
 }
 \end{table}
 
-The first and second models have a total explanatory power of around 52\% (conditional r-squared) in which the fixed effects of the first explain 10.03\% and the second 14.5\% of the variance (marginal r-squared). The effect of the treatment is significant and large for both models with participants investing, contrary to hypothesis \ref{hyp:treat-overinvest} almost double as much as the control. Round repetition and risk averse behavior have both a significant although relatively small effect in the expected negative direction. The CRT score and whether a participant was playing with a high wage did not have a significant effect on the over-investment ratio.\\
+The first and second models have a total explanatory power of around 52\% (conditional r-squared) in which the fixed effects of the first explain 10.03\% and the second 14.5\% of the variance (marginal r-squared). The effect of the treatment is significant and large for both models with participants investing, contrary to hypothesis \ref{hyp:treat-overinvest}, almost double as much as the control. Round repetition and risk averse behavior have both a significant although relatively small effect in the expected negative direction. The CRT score and whether a participant was playing with a high wage did not have a significant effect on the over-investment ratio.\\
 
-Figure \ref{fig:beliefs_smooth} shows a reduction in the mean over-estimation of investments by the other group participants indicating better knowledge of other's behaviour. It is nevertheless surprising how little accuracy participants appear to reach after playing seven rounds and having been shown all relevant information.\\
+Figure \ref{fig:beliefs_smooth} shows a reduction in the mean over-estimation of investments by the other group participants indicating better knowledge of other's behaviour with progressing rounds. It is nevertheless surprising how little accuracy participants appear to reach after playing seven rounds and having been shown all relevant information.\\
 
 \begin{figure}
     \centering
@@ -329,15 +345,24 @@ Figure \ref{fig:beliefs_smooth} shows a reduction in the mean over-estimation of
     \label{fig:beliefs_smooth}
 \end{figure}
 
-A possibility for why participants in the treatment invest relatively more is that participants apply a heuristic of a fix proportion of available income for investment. Running a similar regression as above on the investment ratio of available income in fact deletes the effect of all fixed effects but time, suggesting that participants tend to invest the same amount of their available income, regardless of their earnings or idiosyncratic features.\\
+A possibility for why participants in the treatment invest relatively more is that participants apply a heuristic of a fix proportion of available income for investment. Running a similar regression as above on the investment ratio of available income in fact deletes the effect of all fixed effects but time, suggesting that participants tend to invest the same amount of their available income, regardless of their earnings or idiosyncratic features. Figure \ref{fig:invest_share} shows a plot of the mean shares of the available income invested. The shares decrease with time in similar fashion for both treatments and apart from the final investing round, within an standard error from each other.\\
 
-A Wilcoxon rank test (p: 0.01) suggests that in fact total welfare (the total amount of tokens payed out during competition) is larger in the treatment than in the control. Higher welfare in the treatment seems to be driven by working closer to the optimum. Adding the gini coefficient of the available income to the model in table \ref{tab:over_invest} does not show any significance of inequality nor does it change the remaining coefficients. This strengthens the idea that the higher investment in the treatment is due to a fixed investment share heuristic.\\
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{graphs/investment_share_geom_line.png}
+    \caption{Investment share of available income per round}
+    \label{fig:invest_share}
+\end{figure}
+
+A Wilcoxon rank test (p: 0.01) suggests furthermore that total welfare (the total amount of tokens payed out during competition) is larger in the treatment than in the control. Higher welfare in the treatment seems to be driven by working closer to the optimum. Adding the gini coefficient of the available income to the model in table \ref{tab:over_invest} does not show any significance of inequality nor does it change the remaining coefficients which strengthens the idea that the higher investment in the treatment is due to an available income share heuristic.\\
 
 
 
 \subsection{Hypothesis 3}
 
-In terms of probabilities, I am interested in how its distribution change. Of course, the mean probability of earning the high wage is always equal to $1/n$, but its distribution can vary from exactly $1/n$ for each participant, to only one person in the group having a probability of 1 and all the rest a probability of 0. Figure \ref{fig:dens_prob} shows the density plots for each round. A completely equal distribution would have its maximum at 0.33 with no values around it, while a completely unequal distribution would see two peaks at each extreme with the one at 0 being twice the size of the the one at 1.\\
+\textbf{Hypothesis \ref{hyp:wins}} \textit{The coefficient of variance of winning probabilities will be increasing across rounds while being smaller in the treatment.}\\
+
+In terms of probabilities, I am interested in how its distribution change. Naturally, the mean probability of earning the high wage is always equal to $1/n$, but its distribution can vary from exactly $1/n$ for each participant, to only one person in the group having a probability of 1 and all the rest a probability of 0. Figure \ref{fig:dens_prob} shows the density plots for each round. A completely equal distribution would have its maximum at 0.33 with no values around it, while a completely unequal distribution would see two peaks at each extreme with the one at 0 being twice the size of the the one at 1.\\
 
 \begin{figure}[H]
     \centering
@@ -346,7 +371,7 @@ In terms of probabilities, I am interested in how its distribution change. Of co
     \label{fig:dens_prob}
 \end{figure}
 
-Figure \ref{fig:dens_prob} seems in fact to show an increase of density at the ends of the distribution with round 1 having a rather flat shape and round 8 stronger peaks at both 0 and 1 probability. To test if the distribution of probabilities between the treatments really differ, I use the coefficient of variation as for instance in XXXX, It is a measure widely used in economics, sociology and natural sciences, and as XXX recommends, appropiate to use in cases where there is a relatively exact measure of the values. Figure \ref{fig:var_coeff_boxplot} shows a box plot of the coefficient of variations across rounds for both treatments. In fact, it seems to increase across rounds but not significantly so between treatments.\\
+Figure \ref{fig:dens_prob} seems in fact to show an increase of density at the ends of the distribution with round 1 having a rather flat shape and round 8 stronger peaks at both 0 and 1 probability. To test if the distribution of probabilities between the treatments really differ, I use the coefficient of variation $c_v=\frac{\sigma}{\mu}$ as for instance in \cite{rassenti2000}, as \cite{bendel1989} recommends it to use in cases where there is a relatively exact measure of the values. Figure \ref{fig:var_coeff_boxplot} shows a box plot of the coefficient of variations across rounds for both treatments. In fact, it seems to increase across rounds but not significantly so between treatments.\\
 
 \begin{figure}[H]
     \centering
@@ -355,7 +380,7 @@ Figure \ref{fig:dens_prob} seems in fact to show an increase of density at the e
     \label{fig:var_coeff_boxplot}
 \end{figure}
 
-Table \ref{tab:var_coeff_ols} shows the results for an OLS regression of two models explaining the difference across groups in the coefficient of variation for the probabilities of winning. A linear mixed model is left out here since each group is part of only one treatment and the variables are all aggregated at the group level. Only round repetition appears to have a significant, although small effect (in our setting, the coefficient of variance can fluctuate between 0 and 1.73). Idiosyncratic group values like the mean value of valuation, CRT score or risk aversion do not play a significant role in the variation of probabilities. Taxation and redistribution also do not play a role. In other words, introducing a redistribution scheme does not avoid the fact that, with time, the distribution of probabilities will go to extremes with some participants having most of the chance to win and the rest having almost none.\\
+Table \ref{tab:var_coeff_ols} shows the results for an OLS regression of two models explaining the difference across groups in the coefficient of variation for the probabilities of winning. A linear mixed model is left out here since each group is part of only one treatment and the variables are all aggregated at the group level. Only round repetition appears to have a significant, although small effect (in our setting, the coefficient of variance can fluctuate between 0 and 1.73) on the coefficient of variation. Idiosyncratic group values like the mean value of valuation, CRT score or risk aversion do not play a significant role in the variation of probabilities. Taxation and redistribution also do not play a role. In other words, introducing a redistribution scheme does not avoid the fact that, with time, the distribution of probabilities will go to extremes with some participants having most of the chance to win and the rest having almost none.\\
 
 
 \begin{table}[!htbp] \centering 
@@ -398,9 +423,9 @@ F Statistic & 3.857$^{**}$ (df = 2; 221) & 2.431$^{**}$ (df = 5; 218) \\
 \end{tabular} 
 \end{table}
 
-Of course, this does not tell us much about what determines the probability of a given participant to win a contest. To analyze it, I suggest again a linear mixed model although this time a generalized mixed model from a beta distribution. Table \ref{tab:glm_prob} shows the results.\\
+Of course, this does not tell us much about what determines the probability of a given participant to win a contest. To analyze it, I suggest again a linear mixed model although this time a generalized mixed model from a beta distribution\footnote{Since several participants did not invest at all and thus had a probability of winning of 0, leading to some other participants to have a probability of winning of 1, those values were transformed to 0.0000000000001 and 0.0000000000009 respectively to allow to fit a beta distribution.}. Table \ref{tab:glm_prob} shows the results.\\
 
-The only variable that shows a significant, although small, effect on the probability of winning is the size of the available income. Note in particular, that neither the treatment, nor having won alone have significant effect on the probability of winning.\\
+The only variable that shows a significant, although small, effect on the probability of winning is the size of the available income. Note in particular, that having won alone has no significant effect on the probability of winning. This is in part because participants can still have a large available income if they forfeit time in the leisure mode. An alternative model including cumulative wins also showed no influence on the probability of winning.\\
 
 \begin{table}[!htbp] \centering 
   \caption{GLMM Probability of Winning} 

@@ -1,3 +1,30 @@
-\chapter{Policy Implications and Conclusion}
+\chapter{Conclusion}
 \label{ch:conclusion}
 \thispagestyle{fancy}
+
+This thesis presented an experimental design aimed at analysing the dynamics of the Prospect of Upward Mobility by letting participants invest part of their work earnings in a Tullock contest whose price was a higher wage in the following period. It provided sensible parameters that can be adapted by future researchers to dive deeper into different aspects of the model and analyzed a taxation intervention in a laboratory experiment.\\
+
+The results of the experimental sessions both confirmed and contradicted some of the initial hypotheses regarding the distribution of probabilities and the dynamics of investments. Those results also pointed the way to some design and parameter changes and extensions to the initial design. Changing for instance the difference between the high and low wages could lead to stronger reactions in work supply when winning and to the sentiment of fairness of the game. Remember from section \ref{sec:budget_constraint} that given a high enough high valuation, losing players will have no possibility to invest their optimal investment. This could furthermore exacerbate the tendency of probabilities to grow apart from each other.\\
+
+In a related manner but more complex to model, the prize can be increased with each passing round or the contest success function can be altered to be more or less deterministic by changing the exponent $r$ in the equation:
+
+\begin{equation}
+    p(I_i,I_{-i}) =
+\begin{cases}
+    \frac{1}{n},& \text{if } I_i = I_{-i} = 0\\
+    \frac{I_i^r}{I_i^r + \sum_{j\neq i}^n I_{j}^r},              & \text{otherwise}
+\end{cases}
+\label{eq:csf_exp}    
+\end{equation}
+
+A result that also pointed the way to a design expansion was the apparent available income share heuristic. In future experiments one could control, for instance, if participants are aware of how much the prize is worth by eliciting beliefs about the valuation of the game before the investment screen. This would further allow to see how much of the over-investing is due to competition properties like last place aversion and winning utility. Likewise, the slider interface for investing could be changed to an number input which could help mitigate the visual effect of choosing a share of the available income instead of a particular value that maximizes expected earnings.\\
+
+A comparison between the present design, which included full information about the own and other's performance, and a treatment with no information could as well help disentangle the impact of learning, a decreasing utility function for winning, as well as competition properties like inequality or last place aversion.\\
+
+Other parameter changes that might have a strong repercussion but whose modelling are beyond the scope of this thesis are for instance the number of people in the group or the number of winners per round. One could furthermore model the invested amounts as a public good, in a similar way as investment in education in the real world is, such that the investments are either redistributed to the winner(s) or to the entire community.\\
+
+On the policy end, looking back at the original postulates of the Prospect of Upward mobility, it is difficult to make a prediction as to which way voting would go in a dynamic setting. Considering that the majority of probabilities tended to go to 0, we could expect voting for taxing to go up in the long run. On the other hand, as smaller investments also lead to higher probabilities of winning with increasing rounds, taxation could be voted down whenever players have a positive probability of obtaining the prize. Which of the two directions dominates will be strongly dependant on the determinism of the contest expressed trough the exponent $r$ of equation \ref{eq:csf_exp} and the valuation of the prize. A design that internalizes both voting on taxation and the POUM would be an interesting way to see how this two factors interplay, but it would require a better knowledge of the dynamics of several taxation schemes and $r$ parameters beforehand.\\
+
+Finally, an issue of extreme importance that could not be addressed in this thesis is the efficiency of the wins. One could argue that ideally, the participant who wins the contest should be the one who gets the most out of it i.e. the one who earns the most under the high piece rate. This kind of efficiency could also be interpreted as fairness since it not only maximises total welfare but awards the prize to the most deserving participant. Particularly when investments and income are reinvested in form of a public good. The current design and analysis assumes an equal valuation among participants due in large part to the selection of the real effort task and the relatively low valuation of the prize. Adjusting the difference in wages between winners and losers and calculating the optimal investments according to equation \ref{eq:InvDiffVal} would make it possible to judge the efficiency of the wins and help find interventions that foster fairness.\\
+
+Many other changes and extensions are possible which will hopefully help to better understand the dynamics of Tullock contests in real-world applications as different as public education, labor market and public goods provision.\\
