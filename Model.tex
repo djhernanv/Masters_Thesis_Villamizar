@@ -1,8 +1,8 @@
-\chapter{The Model}
+\chapter{The Contest Success Function}
 \label{ch:model}
 \thispagestyle{fancy}
 
-The model the experiments builds upon is inspired by \cite{koch2017} and aims to simulate a process in which an individual competes in several periods to obtain a higher wage in the next. \cite{koch2017} proposes a Tullock contest in which the relative work supply determines the probability of winning a higher income in the following period and it is described by the Contest Success Function (CSF):
+The model my experiment builds upon is inspired by \cite{koch2017} and aims to simulate a process in which an individual competes in several periods to obtain a higher wage in the next period. \cite{koch2017} proposes a Tullock contest in which the relative work supply determines the probability of winning a higher income in the following period and it is described by the Contest Success Function (CSF):
 
 \begin{equation}
     p(x_i,x_{-i}) =
@@ -17,7 +17,7 @@ The model the experiments builds upon is inspired by \cite{koch2017} and aims to
 
 Where $x_i$ is the work supplied by participant $i$ and $n$ the total number of participants. So, if a participant provides, for instance, one fourth of the total work supply, she will have a 25 percent chance of obtaining the high income in the following round.\\
 
-This model, however, has several drawbacks. Most notably, that the probability of winning depends only on work supply and therefore redistribution has no direct effect on the Prospect of Upward Mobility. Furthermore, it allows for inequality only trough the disincentive of taxation (some participants are taxed relatively more because they earn less), and, due to the dependence between periods, is not solvable analytically.\\ 
+Koch's model, however, has several drawbacks. Most notably, that the probability of winning depends only on work supply and therefore redistribution has no direct effect on the Prospect of Upward Mobility. \textcolor{red}{Furthermore, it allows for inequality between players only through the disincentive of taxation (some participants are taxed relatively more because they earn less) but not by differences in ability.} Also, since the contest outcome of one period directly affects the optimal work supply of the next, the best response function and therefore the optimization problem increase in complexity with each round and are not solvable analytically.\\ 
 
 To address those issues I consider a model where the probability of upward mobility is dependant on an individual's relative investment in human capital –similar to investment in private education.\\ 
 
@@ -45,7 +45,7 @@ In period 1, a participant wants therefore to maximize her expected profit $\mat
 \label{eq:exp_util}
 \end{equation}
 
-Assuming risk-neutrality and that the valuation $\mathbb{V}$ of the higher wage is equal for all participants and therefore that $I_i^{*}=I_{-i}^{*}=I^{*}$ it can be easily shown that the optimal investment amount is:
+Assuming risk-neutrality and that the valuation $\mathbb{V}$ of the higher wage is equal for all participants and therefore that $I_i^{*}=I_{-i}^{*}=I^{*}$ it can be easily shown that the optimal investment amount is\footnote{A step-by-step derivation can be found in the Appendix \ref{ax:derivations}}:
 
 \begin{equation}
     I^{*} = \frac{n-1}{n^2}\mathbb{V}
@@ -56,14 +56,14 @@ Assuming risk-neutrality and that the valuation $\mathbb{V}$ of the higher wage 
 
 The optimal amount of investment in the first round will hence depend inversely on the number of participants and directly proportional to the value of the prize.\\
 
-\subsection{Ensuring Opportunity: The Budget Constraint}
+\section{Ensuring Opportunity: The Budget Constraint}
 \label{sec:budget_constraint}
 
 But what happens if there are several consecutive rounds? In the presented design, the probability of obtaining the high income in the next period is independent from the previous period only if the optimal investment amount is higher than the available income. In other words, if a participant that has not won the high wage cannot afford the optimal investment, he would have an increased interest to earn the high wage in previous periods. The budget constraint $\frac{n-1}{n^2}\mathbb{V} \leq \pi(w_l)$ is thus violated whenever $\frac{\pi(w_h)-\pi(w_l)}{\pi(w_l)} > \frac{n^2}{n-1}$.\\
 
 Pilot sessions have shown that in a game with three participants, a high wage of approximately five times the low wage will make it impossible for a low wage participant to invest the optimal amount. I take this into account for the current experimental design and make the high wage only twice as large.
 
-\subsection{Asymmetric Valuations}
+\section{Asymmetric Valuations}
 
 An important conundrum that the here presented approach makes easier than \cite{koch2017} to solve is a possible difference in valuation of the prize in terms of higher wage since participants with higher ability or higher utility from consumption will have a higher profit from it. \cite{nti1999} shows that in the two player case:\\
 
@@ -71,7 +71,7 @@ An important conundrum that the here presented approach makes easier than \cite{
     "The player who values the prize more expends more effort in equilibrium but both players allocate the same fraction of their valuations to the contest"\footnote{\cite[p.~419]{nti1999}}.
 \end{quote}
 
-To show this, we just need to write the FOC for the two players explicitly:
+To show this, we just need to write the FOC for the two players explicitly\footnote{see the Appendix \ref{ax:derivations} for a derivation of the FOC}:
 
 \begin{equation*}
 \begin{split}
@@ -150,8 +150,8 @@ A look at the function graph \ref{fig:invest_func} gives us a better intuition o
     \label{fig:invest_func}
 \end{figure}
 
-\subsection{Theoretical Predictions}
+\section{Theoretical Predictions}
 
-Regardless of the repetitions of the game, the expected profit maximizing investment for a given player is constant as, first, the valuation of the game is constant across periods, and, second, the invested amount only affects the winning probabilities of the subsequent period.\\
+Regardless of the repetitions of the game, the expected profit maximizing investment for a given player is constant as shown in equation \ref{eq:opt_last} since, first, the valuation of the game is constant across periods, and, second, the invested amount only affects the winning probabilities of the subsequent period.\\
 
 Furthermore, since work supply does not enter the CSF and, as explained in section \ref{sec:budget_constraint}, participants can always afford to invest their optimum, there is no incentive to work more than the profit maximizing amount.

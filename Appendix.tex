@@ -2,6 +2,41 @@
 
 \begin{appendices}
 
+\chapter{Derivations}
+\label{ax:derivations}
+
+\section*{Investment Optimization in Tullock Contest}
+
+A player $i$ wants to find the $I^*$ that maximizes his or her expected profit as expressed in the maximization problem:
+
+
+\begin{equation}
+    \underset{I_i}{\text{max}}\quad\mathbb{E}\Pi_i(I_i,I_j) = \frac{I_i}{I_i + \sum_{j\neq i}^n I_{j}}\mathbb{V} - I_i
+\label{eq:exp_util_anex}
+\end{equation}
+
+Where $n$ is the  number of participants in the game.\\
+Let us assume that the valuation of the game $\mathbb{V}$ is equal for all players and hence, that the optimal investment $I^{*}$ is equal for everyone. At the maximum of function \ref{eq:exp_util_anex} holds:
+\begin{flalign*}
+    \frac{d}{dI_i}(\frac{I_i\mathbb{V}}{I_i + \sum_{j\neq i}^n I_{j}} - I_i) = 0 &&
+\end{flalign*}
+which after deriving using the quotient rule results in:
+\begin{flalign*}
+    \frac{\mathbb{V}(I_i + \sum_{j\neq i}^n I_{j})-I_i\mathbb{V}}{(I_i + \sum_{j\neq i}^n I_{j})^2}-1&&
+\end{flalign*}
+Since we know that at the maximum $I_i^{*}=I_{-i}^{*}=I^{*}$ holds, we can simplify:
+\begin{flalign*}
+    \frac{n\mathbb{V}I^*-\mathbb{V}I^*}{(nI^*)^2}-1 = 0&&
+\end{flalign*}
+We further simplify to:
+\begin{flalign*}
+    \frac{\mathbb{V}\bcancel{I^*}(n-1)}{n^2I^{\bcancel{*2}}} = 1&&
+\end{flalign*}
+Which gives equation \ref{eq:opt_last}:
+\begin{flalign*}
+    I^{*} = \frac{n-1}{n^2}\mathbb{V}
+\end{flalign*}
+
 \chapter{Tables}
 
     \begin{figure}

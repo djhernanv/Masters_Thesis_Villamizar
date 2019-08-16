@@ -2,25 +2,26 @@
     \label{ch:experiment}
     \thispagestyle{fancy}
     
-    The experiment was programmed using oTree \citep{chen2016}\footnote{A playable demo version is available at XXX.XXX.XXX}, and was conducted during the second half of 2018 in four sessions at the \textit{Vienna Center for Experimental Economics} where a total of 96 people (55 female and 41 male) with an average age of 25 took part. Two of the sessions ran the control while the two others ran the treatment, such that exactly half the participants were in the treatment and half in the control.\\
+    To empirically test the theoretical statements of the model described in chapter \ref{ch:model}, I designed and conducted a laboratory experiment. The current chapter begins with a general overview in section \ref{sec:gen_str}. It then lists the considerations going into the selection, design and parametrization of the Real Effort Task (RET) in section \ref{sec:RET} and then details all the steps and screens in the chronological order in which each element is presented to participants. The goal here is to make explicit which information is available to players at each moment during the experiment.\\
     
-    Participants were not allowed to communicate, nor to use their cellphones. The instructions were presented to all participants on-screen and were also read aloud to let them know everyone had the same information. Also, at every step during the instruction reading, participants were actively asked if they had any questions and we only proceeded if no one had.\\
-    
-    At the end of the session, participants were paid anonymously, in private, and in cash, ranging from EUR 12.5 to 31.3 for an average payoff of EUR 22.9.
+    The treatment intervention is explained in section \ref{sec:treat}, while the hypotheses derived from this specific design and the research question proposed in the introduction chapter are laid out in section \ref{sec:hyp}.
     
     \section{General Structure of the Experiment}
+    \label{sec:gen_str}
     
-    The experiment is roughly divided into three sections. The first is an introductory section where the Real Effort Task (RET), the leisure mode, the investment and prize awarding procedure, and, in the treatment, the taxation and redistribution scheme are explained in great detail. In this first section, participants are also asked several control questions to test for their understanding of the task.\\
+    The general goal is to let players invest their earnings from solving a Real Effort Task to increase their individual chances to win a contest awarding the double wage in the following round as explained in the theoretical model of section \ref{ch:model}. This process is repeated several times with the same participants in each group and round.\\ 
     
-    Within this introductory section, participants complete two rounds of the RET, once with a low piece rate and once with a high piece rate. This is used later as a baseline against which the performances in the competitive rounds are compared.\\
+    % To avoid having a situation where wage increase does not result in effort increase, paid leisure is introduced. How paid leisure works is explained in detail in subsection \ref{ss:switch_mode}.\\
+    
+    The experiment is roughly divided into three sections as shown in figure \ref{fig:exp_str}\footnote{ Table \ref{tab:exp_design} in the appendix lists a detailed breakup of the three main sections and its contents}. The first is an introductory section where the principal components of the experiment, including the RET, are explained in great detail to the participants. In this first section, participants are also asked several control questions to test for their understanding of the task.\\
+    
+    Within the introductory section, participants complete two rounds of the RET, once with a low payment per task and once with a high payment per task. This is used later as a baseline against which the performances in the competitive rounds are compared. An in detail description of each step and screen during the introductory section is written in section \ref{sec:intro_exp}.\\
     
     The second section is the Tullock competition and it is the core of the experiment. In it, participants earn money by solving the RET which they can subsequently invest to win a higher piece rate in the following round.\\
     
     Finally, in the third section participants answer several questionnaires regarding their demographics, their cognitive reflection and their risk aversion.\\
     
-    Figure \ref{fig:exp_str} shows the basic structure of the experiment, while table \ref{tab:exp_design} in the appendix lists a detailed breakup of the three main sections and its contents. The following sections in this chapter explain each part in detail.
-    
-\begin{figure}
+    \begin{figure}
 \centering
 \begin{tikzpicture}
   [
@@ -52,21 +53,88 @@
 \label{fig:exp_str}
 \end{figure}
     
+    The experiment was programmed using oTree \citep{chen2016}\footnote{A playable demo version is available at \textcolor{red}{XXX.XXX.XXX}}, and was conducted at the \textit{Vienna Center for Experimental Economics}. Participants were not allowed to communicate, nor to use their cellphones. The instructions were presented to all participants on-screen and were also read aloud to let them know everyone had the same information. Also, at every step during the instruction reading, participants were actively asked if they had any questions and we only proceeded if no one had. Lastly, participants were paid anonymously at the end of the session, in private, and in cash.
+    
+    
+    \section{Real Effort Task}
+    \label{sec:RET}
+    
+    The RET is inspired by \cite{rey-biel2016} and \cite{giusti2014}. Participants are asked to count the occurrences of the letter ``a'' in a random string of characters. Figure \ref{fig:LC_screen} gives an example of such a string which in the experiment is called a \textit{sequence}. The sequence is generated pseudo-randomly but it is identical for every participant in the session. A fact that all participants are made aware of.\\ 
+    
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{graphs/screenshot_RET_alone.png}
+        \caption{Sample Screen of the Letter Counting Task}
+        \label{fig:LC_screen}
+    \end{figure}
+    
+    This particular task has been chosen as it fulfills several requirements from my design. The main research questions address the effects of inequality on performative measures like output, and efficiency. To be able to observe changes in those measures it is therefore important to ensure that participants are not simply always doing as much as they can, i.e. a corner solution. Such a phenomenon would be particularly strong if players have a strong intrinsic motivation or if no incentive is offered to stop solving tasks \citep{frey1997}. An example of a task with high intrinsic motivation would be any fun game as, for instance, Tetris.
+    The Letter Counting Task is tedious and repetitive without being effortless and therefore offers a particularly strong effect for monetary incentives \citep{cerasoli2014}.\\
+    
+    Furthermore, the task is easy to explain and it does not rely on a mathematical framing which has been shown to induce a gender gap, when in a competitive setting, not linked to skill \citep{niederle2010}.\\ 
+    
+    Note also, that every time before the Real Effort Task (RET) starts, a waiting page makes sure that all participants have completed all sections before, thus avoiding some participants solving the task while others read. Also, a confirmation page is displayed before the start of the RET so that participants are not taken by surprise.
+    
+    \subsection{Incentivised Leisure}
+    \label{ss:switch_mode}
+    
+    Another issue present when trying to identify work supply levels in the laboratory that might produce a corner solution is the missing of incentivisation of non-work. In real life, leisure has an intrinsic motivation which in economics is quantified by the opportunity costs of not working. In the laboratory, however, due to the short time frame, implicit peer pressure and possible experimenter demand effects, participants might be averse to stop supplying work and spend time in leisure. To address this issue, a fundamental feature of my design is, following \cite{sausgruber} , the monetary incentivisation of leisure time.\\
+    
+    In my experiment, participants have, at any point while solving the task, the opportunity to change to a leisure mode where they are paid per time unit and do not need to work. In this leisure time mode, that was called \textit{switch} to avoid any stigma on shirking \citep{rey-biel2016, eriksson2009}, players obtain 1 token for each 10 seconds they spent in it. A confirmation screen is shown to ensure that participants do not enter the switch mode by mistake.
+    
+    \subsection{Increasing Difficulty and Optimality}
+    
+    Given a participant's ability, there must exist a rate of payment per time unite for which she or he is indifferent between offering work -solving the task- or spending time in leisure. Assume for instance that a participant needs one second to solve a sequence of given length and earns one monetary unit for that. If he or she would also earn one monetary unit per second in the leisure mode, they would stay in the ``switch'' mode since there is also a disutility to labor. But if he or she needs shorter than one second, they would prefer to solve the sequence since they would earn more. Between those two points, and according to the transitivity and continuity axioms of choice, there must be a point where they were indifferent.\\
+    
+    In my design, and following \cite{sausgruber} idea, the Letter Counting Task starts at a level for which any participant would earn more by solving the task than by spending time in ``switc'' mode. The sequence then increases in length each time by four characters making it each time more difficult to count the number of ``a''s. Depending on their abilities, each player will have a point at which he or she would earn more by staying in the ``switch'' mode. By observing the times taken to solve each task I can infer the point at which any participant should have changed.\\
+    
+    This difficulty increasing feature is also one of the reasons for which I chose the Letter Counting Task. The random sequence is easily generated while the difficulty increase (the length increase) can be easily and quantifiably changed. In fact, it allows for several parameter changes for future research. For instance the speed of increase, the exchange rate between \textit{switch} and task, or the letters that are to be counted.\\
+    
+    To ensure that, when generated, the solution to the following sequence is not just the number of the last sequence plus a small number, for each generated sequence a new sample from a new population with a different distribution is drawn. This makes it unviable to just guess the number of the sequence by starting at the number of the last one.
+    
+        
+    \subsection{Learning Effects}
+    Since the experiment consists of several benchmarking and competition rounds it was important to have a task that would present little increase in performance after each repetition. Otherwise it would have been difficult to compare the outcomes of the baseline and the competition rounds for the same participants.\\
+    
+    The task and design selected allow for enough repetition and learning even before measurements start. Moreover, within each round there are several repetitions. On average, a participant solves 11.6 sequences per round. There does not seem to be much room for improvement in recognizing ``a''s after doing it a couple times. Figure \ref{fig:avg_time_task} shows the average time needed to solve the first 16 tasks across the eight competitive rounds. Although there is an increase in variance as the task become more difficult (going from the top left to the bottom right box), there is no visible decrease in the average time needed by participants to solve each task across rounds (going from left to right in each box). Note that this assumes similar learning effects across individuals.
+    
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=\textwidth]{graphs/avg_time_per_task_round.png}
+        \caption{Average time in seconds needed to solve the first 16 tasks across rounds \textcolor{red}{change facet labeling to "Task X"}}
+        \label{fig:avg_time_task}
+    \end{figure}
+    
+    
+    \subsection{Benchmarking}
+    \label{ss:benchmarking}
+    
+    To identify the levels of performance outside competition, two rounds of the RET are played during the introductory section of the experiment. In the first round, participants receive what will be the low piece rate (the payment per sequence if they do not win the contest), while in the second they receive the high piece rate (the payment per sequence if they are declared the winner of a period). The latter piece rate was, in my case, double the low piece rate such that a participant would take up to twenty seconds solving a sequence before switching to the leisure mode. The order of the benchmark rounds, first low, then high piece rate, was selected to make the difference in earnings between them more salient.
+    
+    Instructions and control questions were shown before the low and high piece rate paying benchmarking rounds. In the control questions before the high wage benchmark, I chose the possible answers such that selecting the correct answer for the low wage benchmark round would be possible, so forcing participants to think why there was a change in the maximizing time to solve sequences. Participants could only advance if they responded all control questions correctly.
+    
+    \subsection{Feedback}
+    
+    During solving of the RET a summarized version of the instructions is shown at the bottom of the page and a mouseover display explains all relevant elements if needed. Once a participant goes into the \textit{switch} mode, a counter shows live how many tokens he or she earns with each passing second and informs him or her about the number of sequences solved.\\
+    
+    Finally, a feedback screen shows how many sequences were solved, how much time spent in the \textit{switch} mode and how many the total earnings for the round are. In the second round of the baseline setting RET, another table informs the participant about the earnings of the previous round to make the difference in earnings, between the high and the low piece rate, more salient. \textcolor{red}{A selection of screenshots is provided in the Appendix}
+    
     \section{Introductory Section}
+    \label{sec:intro_exp}
     
     The introductory section welcomes the participants and instructs them into the functioning of the experiment and the Real Effort Task (RET).
     
     \subsection{Real Effort Task Instructions and Trial Round}
     
-    After a short introduction to the experiment, participants are explained the main goal of the RET (counting "a"s) and how the submission works (typing the correct number in the input field and hitting "enter"). They then have the opportunity to test the task five times with five different sequences that were chosen to show the variability of the sequences. Some were long and some were short, some had many and some had few "a"s. When a correct answer is submitted, the next sequence is shown and the current timer is restarted (an in-depth explanation of the RET is presented in section \ref{ss:RET}). \\
+    After a short introduction to the experiment, participants are explained the main goal of the RET (counting ``a''s) and how the submission works (typing the correct number in the input field and hitting ``enter''. See section \ref{sec:RET} for more detail). They then have the opportunity to test the task five times with five different sequences that were chosen to show the variability of the sequences. Some were long and some were short, some had many and some had few ``a''s. When a correct answer is submitted, the next sequence is shown and the current timer is restarted. \\
     
-    The screen also featured an annotated tour that explained every part of the RET screen: the sequence, the input field, and a timer counting the number of seconds needed to solve the current and the previous sequence.\\
+    The screen also featured an annotated tour that explained every part of the RET screen: the sequence, the input field, and a timer counting the number of seconds needed to solve the current and the previous sequence. \textcolor{red}{A screenshot is provided in the appendix.}\\
     
     \subsection{Switch Mode Instructions}
     
-    After participants have completed the trial round, they are introduced to the leisure mode, the payment scheme, and the increasing difficulty mechanism of the RET. The incentivised leisure mode is a core feature of my experiment and it is explained in more detail in section \ref{ss:RET}. During the experiment it is called \textit{switch} mode to avoid any stigma on shirking.\\
+    After participants have completed the trial round, they are introduced to the leisure mode, the payment scheme, and the increasing difficulty mechanism of the RET. The incentivised leisure mode is a core feature of my experiment and it is explained in more detail in section \ref{sec:RET}. During the experiment it is called \textit{switch} mode to avoid any stigma on shirking.\\
     
-    Participants are paid one token per correctly solved sequence with one token being converted to EUR 0.1 at the end of the session. While in the "switch" mode, they earn 0.1 tokens per each second spent in it. Great effort is put in this screen to let participants know that, given the payoffs, the ideal point to switch is when he or she takes longer than 10 seconds to solve a sequence, regardless of how much time is left or how many sequences they have solved thus far. However, I do not explicitly write that as the optimum since in the competition rounds it might be advisable to solve more sequences to increase the chances of a higher piece-rate.\\
+    Participants are paid one token per correctly solved sequence with one token being converted to EUR 0.1 at the end of the session. While in the ``switch'' mode, they earn 0.1 tokens per each second spent in it. Great effort is put in this screen to let participants know that, given the payoffs, the ideal point to switch is when he or she takes longer than 10 seconds to solve a sequence, regardless of how much time is left or how many sequences they have solved thus far. However, I do not explicitly write that as the optimum since in the competition rounds it might be advisable to solve more sequences to increase the chances of a higher piece-rate.\\
     
     In this screen, an illustrative example of possible earnings is presented, participants can test the RET several times, and an annotated tour introduces the new elements (a counter of total solved sequences a timeout, and the switch button).
     
@@ -88,102 +156,30 @@
     \begin{figure}
         \centering
         \includegraphics[width=\textwidth]{graphs/cq_switch.png}
-        \caption{Control Question "Switch" Mode}
+        \caption{Control Question ``Switch'' Mode}
         \label{fig:cq_switch}
     \end{figure}
     
     
-    \section{Real Effort Task}
-    \label{ss:RET}
-    
-    Every time, before the Real Effort Task (RET) starts, a waiting page makes sure that all participants have completed all sections before, thus avoiding some participants solving the task while others read. Also, a confirmation page is displayed before the RET so that participants are ready when it starts.\\
-    
-    The RET is inspired by \cite{rey-biel2016} and \cite{giusti2014}. Participants are asked to count the occurrences of the letter "a" in a random string of characters. Figure \ref{fig:LC_screen} gives an example of such a string which in the experiment is called a \textit{sequence}. The sequence is generated pseudo-randomly but it is identical for every participant in the session. A fact that all participants are made aware of.\\ 
-    
-    \begin{figure}
-        \centering
-        \includegraphics[width=\textwidth]{graphs/screenshot_RET_alone.png}
-        \caption{Sample Screen of the Letter Counting Task}
-        \label{fig:LC_screen}
-    \end{figure}
-    
-    This particular task has been chosen as it fulfills several requirements from my design. The main research questions address the effects of inequality on performative measures like output, and efficiency. To be able to observe changes in those measures it is therefore important to ensure that participants are not simply always doing as much as they can, i.e. a corner solution. Such a phenomenon would be particularly strong if players have a strong intrinsic motivation or if no incentive is offered to stop solving tasks \citep{frey1997}. An example of a task with high intrinsic motivation would be any fun game as, for instance, Tetris.
-    The Letter Counting Task is tedious and repetitive without being effortless and therefore offers a particularly strong effect for monetary incentives \citep{cerasoli2014}.\\ 
-    
-    Furthermore, the task is easy to explain and it does not rely on a mathematical framing which has been shown to induce a gender gap, when in a competitive setting, not linked to skill \citep{niederle2010}.\\
-
-    
-    \subsection{Incentivised Leisure}
-    
-    Another issue present when trying to identify work supply levels in the laboratory that might produce a corner solution is the missing of incentivisation of non-work. In real life, leisure has an intrinsic motivation which in economics is quantified by the opportunity costs of not working. In the laboratory, however, due to the short time frame, implicit peer pressure and possible experimenter demand effects, participants might be averse to stop supplying work and spend time in leisure. To address this issue, a fundamental feature of my design is, following (sausgruber etal), the monetary incentivisation of leisure time.\\
-    
-    In my experiment, participants have, at any point while solving the task, the opportunity to change to a leisure mode where they are paid per time unit and do not need to work. In this leisure time mode, that was called \textit{switch} to avoid any stigma on shirking \citep{rey-biel2016, eriksson2009}, players obtain 1 token for each 10 seconds they spent in it. A confirmation screen is shown to ensure that participants do not enter the switch mode by mistake.
-    
-    \subsection{Increasing Difficulty and Optimality}
-    
-    Given a participant's ability, there must exist a rate of payment per time unite for which she or he is indifferent between offering work -solving the task- or spending time in leisure. Assume for instance that a participant needs one second to solve a sequence of given length and earns one monetary unit for that. If he or she would also earn one monetary unit per second in the leisure mode, they would stay in the "switch" mode since there is also a disutility to labor. But if he or she needs shorter than one second, they would prefer to solve the sequence since they would earn more. Between those two points, and according to the transitivity and continuity axioms of choice, there must be a point where they were indifferent.\\
-    
-    In my design, and following ---sausgrubers-- idea, the Letter Counting Task starts at a level for which any participant would earn more by solving the task than by spending time in "switch" mode. The sequence then increases in length each time by four characters making it each time more difficult to count the number of "a"s. Depending on their abilities, each player will have a point at which he or she would earn more by staying in the "switch" mode. By observing the times taken to solve each task I can infer the point at which any participant should have changed.\\
-    
-    This difficulty increasing feature is also one of the reasons for which I chose the Letter Counting Task. The random sequence is easily generated while the difficulty increase (the length increase) can be easily and quantifiably changed. In fact, it allows for several parameter changes for future research. For instance the speed of increase, the exchange rate between \textit{switch} and task, or the letters that are to be counted.\\
-    
-    To ensure that, when generated, the solution to the following sequence is not just the number of the last sequence plus a small number, for each generated sequence a new sample from a new population with a different distribution is drawn. This makes it unviable to just guess the number of the sequence by starting at the number of the last one.
-    
-        
-    \subsection{Learning Effects}
-    Since the experiment consists of several benchmarking and competition rounds it was important to have a task that would present little increase in performance after each repetition. Otherwise it would have been difficult to compare the outcomes of the baseline and the competition rounds for the same participants.\\
-    
-    The task and design selected allow for enough repetition and learning even before starting. Moreover, within each round there are several repetitions. In average, a participant solves 11.6 sequences per round. There does not seem to be much room for improvement in recognizing "a"s after doing it a couple times. Figure \ref{fig:exp_str} shows the average time needed to solve the first 16 task across the eight competitive rounds. Although there is an increase in variance as the task become more difficult (going from the top left to the bottom right box), there is no visible decrease in the average time needed by participants to solve each task across rounds (going from left to right in each box). Note thas ths assumes similar learning effects across individuals.
-    
-    \begin{figure}[h]
-        \centering
-        \includegraphics[width=\textwidth]{graphs/avg_time_per_task_round.png}
-        \caption{Average time in seconds needed to solve the first 16 tasks across rounds}
-        \label{fig:avg_time_task}
-    \end{figure}
-    
-    
-    \subsection{Benchmarking}
-    
-    To identify the levels of performance outside competition, two rounds of the RET are played during the introductory section of the experiment. In the first round, participants receive what will be the low piece rate (the payment per sequence if they do not win the contest), while in the second they receive the high piece rate (the payment per sequence if they are declared the winner of a period). The latter piece rate was, in my case, double the low piece rate such that a participant would take up to twenty seconds solving a sequence before switching to the leisure mode. The order of the benchmark rounds, first low, then high piece rate, was selected to make the difference in earnings between them more salient.
-    
-    Instructions and control questions were shown before the low and high piece rate paying benchmarking rounds. In the control questions before the high wage benchmark, I chose the possible answers such that selecting the correct answer for the low wage benchmark round would be possible, so forcing participants to think why there was a change in the maximizing time to solve sequences.
-    
-    \subsection{Taxed Benchmarking}
-    \label{ss:tax_bench}
-    
-    To better measure the valuation of the price in the taxation treatment, two extra rounds with a taxation equal to the effective rate in the treatment were introduced in one of the treatment groups. Specifically, in between the low piece rate and high piece rate benchmarking another benchmark round was introduced. This round payed per task the equivalent of the effective taxed low piece rate after redistribution or $w(1-t)+ w(t/n)$\footnote{If the total tax revenue is divided in equal parts among all individuals, as is the case in my design. With $w$ being the piece rate, $t$ the tax rate and $n$ the number of players per group, in my case, 3.}, in my case, 0.6 tokens per sequence. The payment for the \textit{switch} mode remained, as in all rounds, constant. Similarly, an extra round was introduced after the high wage round which payed the equivalent of the effective taxed high piece rate after redistribution, in our case, 1.2 tokens. This extra rounds were introduced in this order so as not to generate a strong separation between the taxed and the untaxed rounds, as well as to space out the control questions. \\ 
-    
-    To control that introducing this extra rounds did not affect participants' performance, I performed a t-test analysis between groups of production in the high and in the low piece rate rounds. Both showed no significant between groups, i.e., no learning or timing effects, nor a significant difference in skill.
-    
-    \subsection{Feedback}
-    
-    During solving of the RET a summarized version of the instructions is shown at the bottom of the page and a mouseover display explains all relevant elements if needed. Once a participant goes into the \textit{switch} mode, a counter shows live how many tokens he or she earns with each passing second and informs him or her about the number of sequences solved.\\
-    
-    Finally, a feedback screen shows how many sequences were solved, how much time spent in the \textit{switch} mode and how many the total earnings for the round are. In the second round of the baseline setting RET, another table informs the participant about the earnings of the previous round to make the difference in earnings, between the high and the low piece rate, more salient.
-    
     \section{Competition Section}
     \label{ss:compt}
     
-    At the beginning of this section, participants are informed that they were selected randomly into groups of three people and that each person was assigned a label \textit{A, B} or \textit{C}, but that their identity and that of all other participants will remain anonymous both to all other participants as well as to the experimenters\footnote{in order to reduce the impact of other-regarding behavior}. Participants in the treatment sessions are farther informed at this stage about the taxation and redistribution scheme (see section \ref{ss:treat}).\\
-    
-    When going from the introductory section to the competition, two things change in regard to the RET and the performance incentives. First, the competitive aspect of being in the group. Participants will have the possibility to see what others and will know, that the other participants will see their own performance. In fact, last place aversion and the utility of winning itself are driving issues behind overbidding in rent-seeking contests \citep{sheremeta2013} as well as performance increase in competitive games. Second, the actual contest where increasing one's earnings can also indirectly increase the chances of winning the prize trough a larger available income to invest.\\
-    
-    That two things change at once might complicate pin pointing reasons for a performance change between the benchmarking and the competition rounds. A possible workaround could have been to add two rounds without an investment or prize option but with information about the performance of group members. However, this could nevertheless have been used by a participant to send signals about the own valuation of the prize to other participants. Since a participant with a higher valuation would also invest more, sending signals about her own valuation might be rewarding even if no prize is to be immediately won. But considering, as shown in section \ref{sec:budget_constraint}, that participants will always be able to invest their optimal amount, the impact of this is not taken into account for the present thesis.\\
+    At the beginning of the competition section, participants are informed that they were selected randomly into groups of three people and that each person was assigned a label \textit{A, B} or \textit{C}, but that their identity and that of all other participants will remain anonymous both to all other participants as well as to the experimenters\footnote{in order to reduce the impact of other-regarding behavior}. Participants in the treatment sessions are further informed at this stage about the taxation and redistribution scheme (see section \ref{sec:treat}).\footnote{ Note that when moving from the introductory section to the competition, two things change in regard to the RET and the performance incentives. First, the competitive aspect of being in the group. Participants will have the possibility to see what others do and will know, that the other participants will see their own performance. In fact, last place aversion and the utility of winning itself have been shown to be the driving issues behind overbidding in rent-seeking contests as well as behind performance increase in competitive games \citep{sheremeta2013}. Second, the actual contest where increasing one's earnings can also indirectly increase the chances of winning the prize trough a larger available income to invest.\\
+    The fact that those two factors change at once might difficult pin-pointing reasons for a performance change between the benchmarking and the competition rounds. This does, however, not affect any of the main variables I am interested in in this study since we can still precisely determine the optimal investment and switching time for each participant and the difference to the observed measures. Furthermore, the effect of competition, inequality, impulsivenes, etc. have already been extensively researched, including in the context of rent-seeking contests. In fact, \cite{sheremeta2016} shows that the main factor is impulsiveness which I control for as explained in subsection \ref{ss:CRT}. For those reasons, I leave the experiment as is, but discuss a possible workaround and its drawbacks in chapter \ref{ch:discussion}.} 
     
     \subsection{Tullock Contest}
     
-    Next, players are informed  about the contest proper. In eight rounds, each participant will have the opportunity to earn money by solving the letter counting task or spending time in the "switch" mode. Money earned trough work \footnote{the net income from counting letters plus the redistributed amount} can then be invested to increase the higher piece rate in the following round. Only one person per round is awarded the prize and the probability of winning it is equal to the share of that person's investment relative to all investments by all players. An example for easier understanding is also shown.\\
+    Next, players are informed  about the contest proper. In eight rounds, each participant will have the opportunity to earn money by solving the letter counting task or spending time in the ``switch'' mode. Money earned trough work \footnote{the net income from counting letters plus the redistributed amount} can then be invested to increase the higher piece rate in the following round. Only one person per round is awarded the prize and the probability of winning it is equal to the share of that person's investment relative to all investments by all players. An example for easier understanding is also shown.\\
     
-    Players are farther reminded at this stage of how much they earned in the benchmarking rounds and of the difference in earnings between the low and high piece rate rounds.\\
+    Players are further reminded at this stage of how much they earned in the benchmarking rounds and of the difference in earnings between the low and high piece rate rounds.
     
     \subsection{Beliefs}
     
-    To test if and how much players take into account the behavior of the others when choosing their production and investment levels, beliefs about the production, i.e. the number of sequences solved, and the amount invested by the other team members are elicited in every round. A visual clue lets them know which player has a higher piece rate in the current round.
+    To test if and to what extent players take into account the behavior of the others when choosing their production and investment levels, beliefs about the production, i.e. the number of sequences solved, and the amount invested by the other team members are elicited in every round. A visual clue lets them know which player has a higher piece rate in the current round.
     
     \subsection{Feedback and Result}
     
-    After solving the task and before investing, as in the introductory section, participants receive feedback on their performance: how many sequences were solved, how many seconds spent in "switch" and, in the case of the treatment, how much the transfers are.\\
+    After solving the task and before investing, as in the introductory section, participants receive feedback on their performance: how many sequences were solved, how many seconds spent in ``switch'' and, in the case of the treatment, how much the transfers are.\\
     
     After the investment, participants become detailed feedback about the investments and performance of the group and are informed of who won the high piece rate in the following round (see fig. \ref{fig:screen_results}).
     
@@ -196,7 +192,7 @@
     
     \subsection{Investment}
     
-    In the investment screen, players use a slider to choose their investment in steps of 0.1 tokens. They are informed about their total available income for investment, how much they invest, how much they would keep and what the prize is. They are also recalled that tokens invested are not refunded, even if the prize is not awarded (see fig. \ref{fig:screen_invest}).
+    On the investment screen, players use a slider to choose their investment in steps of 0.1 tokens. They are informed about their total available income for investment, how much they invest, how much they would keep and what the prize is. They are also reminded that tokens invested are not refunded, even if the prize is not awarded (see fig. \ref{fig:screen_invest}).
     
     \begin{figure}
         \centering
@@ -207,18 +203,35 @@
     
     
     \section{Treatment: Taxation and Redistribution of Income}
-    \label{ss:treat}
+    \label{sec:treat}
     
-    Income from work, that is, from counting letters, is taxed in the treatment at 60\%. The entire tax revenue is then divided equally among all participants so that the total amount of tokens in circulation is constant. Participants can then invest their net income plus transfer to increase their chances to earn the higher piece rate as explained in section \ref{ss:treat}.\\
+    As explained in this Thesis introduction, understanding how voting would affect the POUM itself requires several layers of examination. In the present work, I have a look at how the general dynamics of the contest behave and which impact taxation and redistribution have on the distribution of win probabilities and the exertion of effort.\\
     
-    In the control group there is no taxation and therefore no redistribution. The available income to invest is exactly equal to the earned tokens from letter counting.
+    To test this, I introduced a treatment where income from work, that is, from counting letters, is taxed at 60\%. The entire tax revenue is then divided equally among all participants so that the total amount of tokens in circulation is constant. Participants can then invest their net income plus transfer to increase their chances to earn the higher piece rate as explained in section \ref{ss:compt}.\\
     
-    \section{Fairness Sentiment}
+    In the control group there is no taxation and therefore no redistribution. The available income to invest is exactly equal to the earned tokens from letter counting. Note that the predictions regarding the optimal investment as derived in chapter \ref{ch:model} are unchanged since taxation and redistribution only affects work income. However, taxation does affect the valuation of the game where $\mathbb{V}$ is no longer equal to just the difference in earnings between the high and low wages, but adds the share of the sum of redistributed income $R$ such that $\mathbb{V}_i = x_{hw}*w_{hw} - x_{lw}*w_{lw} + \frac{R}{n}$\footnote{where x is the amount of sequences solved and $hw$ demarks the high wage and {lw} the low wage}.  
     
-    To see how participants themselves perceived the game in terms of what determined success, they were asked to rate from 0 to 7 what determined their success in the game. With 0 being only luck and 7 being only skill. Image \ref{fig:fair_q} shows the voting screen.\\
+    \subsection{Taxed Benchmarking}
+    \label{ss:tax_bench}
     
-    Although it will be interesting to see the results for our experiment. This information will be more valuable when comparing alternative settings, in particular when changing the difference between the high and low income or the CSF. This will be addressed in more detail in the discussion in chapter \ref{ch:conclusion}.
+    To better measure the valuation of the price in the taxation treatment, two extra rounds paying a wage equal to the effective taxation in the treatment were added to the benchmarking phase for the treated group as explained in subsection \ref{ss:benchmarking}.\\
     
+    Specifically, in between the low piece rate and high piece rate benchmarking another benchmark round was introduced. This round payed per task the equivalent of the effective taxed low piece rate after redistribution or $w(1-t)+ w(t/n)$\footnote{If the total tax revenue is divided in equal parts among all individuals, as is the case in my design.}, with $w$ being the piece rate, $t$ the tax rate and $n$ the number of players per group. In my case this means 0.6 tokens per sequence or 1 token minus 40\% of 1. The payment for the \textit{switch} mode remained, as in all rounds, constant.\\
+    
+    Similarly, an extra round was introduced after the high wage round which payed the equivalent of the effective taxed high piece rate after redistribution, in our case, 1.2 tokens or 2 tokens minus 40\% of 2. These extra rounds were introduced in this order so as not to generate a strong separation between the taxed and the untaxed rounds, as well as to space out the control questions. \\ 
+    
+    To control that introducing these extra rounds did not affect participants' performance, I performed a t-test analysis between groups of production in the high and in the low piece rate rounds. Both showed no differences between groups, i.e., no learning or timing effects, nor a significant difference in skill.
+    \textcolor{red}{"introduce table at appendix. explain better"}
+    
+    \section{Idiosyncratic Controls}
+    
+    To control for the effect of idiosyncrasies, like risk aversion, on players' behavior, I introduced several tests at the end of the experiment which are presented in this section. 
+    
+    \subsection{Fairness Sentiment}
+    
+    To see how participants themselves perceived the game in terms of what determined success, they were asked to rate from 0 to 7 what determined their success in the game. With 0 being only luck and 7 being only skill. Image \ref{fig:fair_q} shows the voting screen. The question was posed both at the beginning and end of the competition. Allowing us to observe not only how the perception changes after experiencing the competition, but if and to what extent the fairness perception changes in the presence of redistribution.\\
+    
+    This measure can furthermore be useful in comparisons with other designs and parametrizations as discussed in the discussion in chapter \ref{ch:discussion}.
     
     \begin{figure}
         \centering
@@ -228,9 +241,9 @@
     \end{figure}
     
         
-    \section{Risk Aversion Measure and Risk Elicitation}
+    \subsection{Risk Aversion Measure and Risk Elicitation}
     
-    In the investment section of the experiment players participate, effectively, in a lottery. The exact terms of that lottery are not known to them in advance and present an strategic decision as well. Their investment choices will therefore not only reflect their strategic considerations, but also their stance on risk taking.\\
+    During the investment section of the experiment players participate, effectively, in a lottery. The exact terms of that lottery are not known to them in advance and present an strategic decision as well. Their investment choices will therefore not only reflect their strategic considerations, but also their stance on risk taking.\\
     
     To control for this I include an incentivised risk elicitation test following the \textit{Multiple Price List} by \cite{holt2002} (HL) with the implementation for \textit{oTree} taken from \cite{holzmeister2017}.\\
     
@@ -243,6 +256,7 @@
     \end{itemize}  
        
      In the HL method, players are asked to choose between several pairs of lotteries, A and B. Beginning with a choice where option A is the safer choice, the last choice is between sure outcomes, where B represents the payoff maximizing choice. Between them, there is a point where a participant changes from one option to the other, thus revealing her risk preferences.\\
+     
      Figure \ref{fig:choices_mpl} shows the list of choices that participants were presented with. In it, probabilities are visualized with the help of pie charts and all possible decisions are shown at once. Consistent preferences were forced to avoid elimination of data in the already small sample. After choosing, one of the decisions was then selected randomly and the lottery drawn and paid out.\\
      
      \begin{figure}
@@ -278,7 +292,8 @@
     \label{table:HL}
     \end{table}
     
-    \section{Cognitive Reflection Test}
+    \subsection{Cognitive Reflection Test}
+    \label{ss:CRT}
     
     A tendency to overbidding in rent-seeking contest has been well documented \citep{sheremeta2013, dechenaux2015}. This is particularly critical in my design as overbidding, both in terms of work supply and investment, would be interpreted as an over-exertion of effort.\\
      
@@ -293,29 +308,29 @@
         \label{fig:crt_quest}
     \end{figure}
     
-    \section{Hypotheses}\label{ss:hyp}
+    \section{Hypotheses}\label{sec:hyp}
     
     I focus in this thesis on the dynamic of repeated Tullock Contests, in particular regarding the tendencies of participants to over-invest, and the evolution of winning probabilities across periods. As explained in the introduction, those probabilities can be seen as analogous to the Prospect of Upward Mobility while the investments made in each round are analogous to investments made in human capital needed to acquire high earning jobs.\\
     
-    Broadly speaking, my thesis has a look at performance values in terms of sequences solved and time spent in leisure mode, and at effort exertion values in form of investments. Comparisons in those regards are made both within and between subjects and groups. Within subjects and groups I will look at the differences between the benchmark and the competitive rounds in general, and within the competition rounds across time. In addition, I introduce a taxation and redistribution intervention which will be studied trough a between subject and group comparison.\\
+    Broadly speaking, my thesis has a look at performance values in terms of sequences solved and time spent in leisure mode, and at effort exertion values in form of investments. Comparisons in those regards are made both within and between subjects and groups. Within subjects and groups I will look at the differences between the benchmark and the competitive rounds in general, and within the competition rounds across time. In addition, I introduce a taxation and redistribution intervention which will be studied through a between-subject and group comparison.\\
     
     How investments develop across periods is the first step to analyze the POUM in my experiment. How much participants invest ultimately determines the probabilities of winning, but more importantly, it determines the total welfare of the group. Since available income invested is not reimbursed, investments reduce overall welfare. An intervention that reduces over-investment while ensuring fairer\footnote{The definition and analysis of the concept of fairness go far beyond the scope of the present thesis but are addressed in chapter \ref{ch:conclusion} as part of the discussion.} winning probabilities is therefore desirable.\\
     
-    As described in chapter \ref{ch:model}, investments should be constant over time, however, as \cite{sheremeta2016}, among others, have shown, participants tend to over-invest. I expect, nevertheless, that over-investment decreases over time, due to income effects or to better knowledge of the game. Formally:\\
+    As described in the model in chapter \ref{ch:model}, investments should be constant over time, however, as \cite{sheremeta2016}, among others, have shown, participants tend to over-invest. I expect, nevertheless, that over-investment decreases over time, due to income effects or to better knowledge of the game. This phenomena is shown experimentally by \cite{fallucchi2013} where, although investment levels stay above optimum, they clearly drop in the presence of full information  as it is the case in my design. In that experiment, groups with full information reduced over-investment to around 13\% above optimum while those with only feedback about their own performance stayed at levels of 66\% above optimum. Formally, I expect therefore that:
     
      \begin{hyp} \label{hyp:treat}\textit{Mean investments will be higher than the expected profit maximizing value for all treatments, but decreasing over time.}\end{hyp}
-    
-    As it has been described in the literature of rent seeking contests, over-investment can be driven by several aspects, most importantly, impulsiveness, risk incline, competitiveness and inequality aversion. When introducing a redistribution scheme specially the latter characteristic might be affected as income distributions within groups become more equal. Given the fact that the available income is more equally distributed in the treatment by design, if inequality aversion plays a role, I expect investments in the taxed groups to be relatively lower. Formally:\\
+    \hfill\newline 
+    As it has been described in the literature of rent seeking contests, over-investment can be driven by several aspects, most importantly, impulsiveness, risk incline, competitiveness and inequality aversion. When introducing a redistribution scheme specially the latter characteristic might be affected as income distributions within groups become more equal. Given the fact that the available income is more equally distributed in the treatment by design, if inequality aversion plays a role, I expect investments in the taxed groups to be relatively lower. Formally:
     
     \begin{hyp} \label{hyp:treat-overinvest}
     \textit{Participants in the treatment will invest a lower share of their optimal investment}
     \end{hyp}
     
-    In other words, participants in the treatment will be relatively closer to their optimal investments. Note that the compared measure is the ratio over the optimum since the optimal value of investment is different for both groups. This is because the valuation of the game, that is, the difference in net earnings between the high and the low wage, is different for each treatment.\\ 
+    In other words, participants in the treatment will be relatively closer to their optimal investments. Note that the compared measure is the ratio over the optimum since the optimal value of investment is different for both groups. This is because the valuation of the game, i.e. the difference in net earnings between the high and the low wage, is different for each treatment.\\ 
     
     I control for risk aversion and impulsiveness with the methods mentioned above in the experimental design section (\textit{Cognitive Reflection Test} and \textit{Multiple Price Listing}). Furthermore, if competitiveness plays a major role I should observe no major difference between treatments or across time. What leads to the second part of hypothesis \ref{hyp:treat}: not only do I expect investments to be higher than optimal but to be decreasing over time. If that decrease is driven mainly by a better understanding of the game or better knowledge of other participant's behaviour, I should not observe any difference in slope between treatments. In the latter case I would further expect an increase in the accuracy of a participant's belief over the investment AND performance (since performance determines the valuation) of the group's other participants.\\
     
-    On the other hand, the effect can be driven by an income effect, since in each period only one person wins but two lose. If winners of previous rounds are more likely to invest more and therefore also more likely to win again, losers might invest less each time.  In this case, I should observe a significant difference between winners and losers and a significant effect of cumulative wins on the invested amount.\\
+    On the other hand, the reduction in investments effect can be driven by an income effect, since in each period only one person wins but two lose. If winners of previous rounds are more likely to invest more and therefore also more likely to win again, losers might invest less each time.  In this case, I should observe a significant difference between winners and losers and a significant effect of cumulative wins on the invested amount.\\
     
     A third possibility is that participants have a decreasing utility function for winning. In other words, that participants value winning the first round higher than winning the last one. My design does not allow to disentangle this effect from experience effects but the issue is discussed for further research in chapter \ref{ch:conclusion}.\\
       
