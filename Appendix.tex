@@ -39,11 +39,89 @@ Which gives equation \ref{eq:opt_last}:
 
 \chapter{Tables}
 
+\begin{table}[!htbp] \centering
+\begin{tabular}{@{\extracolsep{5pt}}lcc} 
+\multicolumn{3}{l}{Wilcoxon rank sum test with continuity correction}\\
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+\multicolumn{1}{l}{Piece Rate} & \multicolumn{1}{c}{Statistic} & \multicolumn{1}{c}{p-value}\\
+\hline \\[-1.8ex]
+High & 1186.5 & 0.8006\\
+Low & 1070 & 0.5462\\
+\hline \\[-1.8ex] 
+\hline \\[-1.8ex]
+\multicolumn{3}{l}{\footnotesize{Null Hypothesis: Difference in production between treatments is equal to 0}}\\[2ex]
+\end{tabular}
+  \caption{Comparison of productions in the benchmarking rounds between treated and non treated groups} 
+  \label{tab:bench_prods_test} 
+\end{table} 
+
+
     \begin{figure}
         \centering
         \includegraphics[width=\textwidth]{graphs/Experimental_Design.pdf}
         \caption{Detailed structure of the experiment}
         \label{tab:exp_design}
     \end{figure}
+    
+\begin{table}[!htbp] \centering 
+  \caption{GLMM Probability of Winning} 
+  \label{ax:glm_prob} 
+\begin{tabular}{@{\extracolsep{5pt}}lc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+\\[-1.8ex] & \multicolumn{1}{c}{Probability of Winning} \\ 
+\\[-1.8ex] & (3)\\ 
+\hline \\[-1.8ex] 
+ treatment & $-$0.091 \\ 
+  & (0.218) \\ 
+  &  \\ 
+ available income & 0.044$^{***}$  \\ 
+  & (0.008) \\ 
+  & \\ 
+ was winner & $-$0.056 \\ 
+  & (0.121) \\ 
+  & \\ 
+ gender (male) & 0.317\\ 
+   & (0.225) \\ 
+   & \\ 
+ CRT Score  & $-$0.036 \\ 
+  & (0.113) \\ 
+  & \\ 
+ risk aversion & 0.036 \\ 
+  & (0.049) \\ 
+  & \\ 
+ valuation & 0.060 \\ 
+  & (0.038) \\ 
+  & \\ 
+ mean investment belief & 0.002 \\ 
+  & (0.009) \\ 
+  & \\
+ cumulative wins & $-$0.037 \\ 
+  & (0.028) \\ 
+  & \\ 
+ Constant & $-$2.364$^{***}$ \\ 
+  & (0.650) \\ 
+  & \\ 
+  \hline
+Observations & 672 \\ 
+Log Likelihood & 3801.8 \\ 
+Akaike Inf. Crit. & $-$7575.6 \\ 
+Bayesian Inf. Crit. & $-$7512.5 \\
+\hline
+Num. groups: participant:group     &   96   \\
+Num. groups: group               &    32  \\
+Num. groups: round               & 7        \\
+\hline
+Var: participant:group (Intercept) &  0.872     \\
+Var: group (Intercept) &          0.00     \\
+Var: round (Intercept)  &          0.00    \\
+\hline
+\hline \\[-1.8ex] 
+\textit{Notes:} & \multicolumn{1}{l}{$^{***}$Significant at the 1 percent level.} \\ 
+ & \multicolumn{1}{l}{$^{**}$Significant at the 5 percent level.} \\ 
+ & \multicolumn{1}{l}{$^{*}$Significant at the 10 percent level.} \\ 
+\end{tabular} 
+\end{table} 
 
 \end{appendices}

@@ -10,7 +10,7 @@ At the end of the session, participants were paid anonymously, in private, and i
 \label{sec:seq_prod}
 
 
-During the benchmarking rounds, participants solved around 10 sequences with the piece rate of one token per sequence. With the high piece rate of two tokens per sequence, participants solved an average of 15.3 sequences. The mean valuation, that is, the mean difference between the earnings (income from solving sequences plus income from the leisure mode) in the low and the high piece rate was of around 13 tokens. Table \ref{tab:avg_prod_bench} summarises these findings.\\
+\textcolor{red}{Reorder section to Desctiptive stats}During the benchmarking rounds, participants solved around 10 sequences with the piece rate of one token per sequence. With the high piece rate of two tokens per sequence, participants solved an average of 15.3 sequences. The mean valuation, that is, the mean difference between the earnings (income from solving sequences plus income from the leisure mode) in the low and the high piece rate was of around 13 tokens. Table \ref{tab:avg_prod_bench} summarises these findings.\\
 
 \begin{table}[!htbp] \centering 
   \caption{Mean Values of Production in Benchmark} 
@@ -18,7 +18,7 @@ During the benchmarking rounds, participants solved around 10 sequences with the
 \begin{tabular}{@{\extracolsep{5pt}} cccc} 
 \\[-1.8ex]\hline 
 \hline \\[-1.8ex] 
-treatment & avg. prod. low wage & avg. prod. high wage & mean valuation \\ 
+ & avg. prod. low wage (seqs) & avg. prod. high wage (seqs) & mean valuation (tks)\\ 
 \hline \\[-1.8ex] 
 control & 9.77 & 15.29 & 12.9 \\ 
 treatment & 10.25 & 15.29 & 13.09 \\ 
@@ -26,7 +26,7 @@ treatment & 10.25 & 15.29 & 13.09 \\
 \end{tabular} 
 \end{table} 
 
-During the competition, participants solved an average of 11.5 sequences and spent an average of 85.2 seconds in the \textit{switch} mode. There was little difference in production between wages, i.e. between winners and losers, but some difference can be observed between treatments. Subjects in the treatment produced less in average and spent more time in the \textit{switch} mode. Table \ref{tab:avg_prod} and graph \ref{fig:production_boxplot} summarize these findings.\\
+During the competition, participants solved an average of 11.5 sequences and spent an average of 85.2 seconds in the \textit{switch} mode. There was little difference in production between wages, i.e. between winners and losers, but some difference can be observed between treatments. Subjects in the treatment produced less on average and spent more time in the \textit{switch} mode. Table \ref{tab:avg_prod} and graph \ref{fig:production_boxplot} summarize these findings.\\
 
 \begin{table}[!htbp] \centering
   \caption{Mean Values of Production\\
@@ -35,7 +35,7 @@ During the competition, participants solved an average of 11.5 sequences and spe
 \begin{tabular}{@{\extracolsep{5pt}} cccc} 
 \\[-1.8ex]\hline 
 \hline \\[-1.8ex] 
-treatment & wage & mean solved sequences & mean of time spent in switch \\ 
+ & wage & mean solved sequences & mean of time spent in switch \\ 
 \hline \\[-1.8ex] 
 control & 1 & 12.02 & 78.66 \\ 
  &  & (0.23) & (3.13) \\ 
@@ -107,9 +107,11 @@ Var: Residual & 7.28 \\
 }
 \end{table} 
 
-Remember that in this experimental design, payoffs are not exclusively determined by the amount of sequences solved. They depend also on time spent in the \textit{switch} mode and therefore on the optimal change to it; the invested amount in human capital, and, in the treatment, how much the other players worked. The boxplot in figure \ref{fig:earnings_boxplot} seems to suggest that net income is higher in the treatment groups and that, apart from round 1, they do not change over time. Note that net income describes here income after taxation AND redistribution but before investment. To see if there were significant differences, I use a model with fixed effects \textit{treatment, was winner} and \textit{round} and summarise the findings in table \ref{table:earnings_lmer}.\\
+Remember that in this experimental design, payoffs are not exclusively determined by the amount of sequences solved. They depend also on time spent in the \textit{switch} mode and therefore on the optimal change to it; the invested amount in human capital, and, in the treatment, how much the other players worked. The boxplot in figure \ref{fig:earnings_boxplot} seems to suggest that net income is higher in the treatment groups and that, apart from round 1, they do not change over time. Note that net income describes here income after taxation AND redistribution but before investment. The variance of the treatment is smaller since in that group, by definition, net incomes are closer to each other.\\
 
-Winning the previous round, i.e. playing with the high wage has a strong and significant effect on net income while time, although slightly significant, has only a small effect. The introduction of a tax and redistribution scheme, on the other hand, does not have a significant effect. The model helps explaining 50.11\% (restricted r-squared) of the variance with the fixed effects accounting for 33.73\% (marginal r-squared) of the variance.\\
+To see if there were significant differences in net income between treatments, I use a model with fixed effects \textit{treatment, was winner} and \textit{round} and summarise the findings in table \ref{table:earnings_lmer}.\\
+
+Winning the previous round, i.e. playing with the high wage has a strong and significant effect on net income while time, although marginally significant, has only a small effect. The introduction of a tax and redistribution scheme, on the other hand, does not have a significant effect. The model helps explaining 50.11\% (restricted r-squared) of the variance with the fixed effects accounting for 33.73\% (marginal r-squared) of the variance.\\
 
 Notice that while the taxation treatment has a negative impact on the number of sequences solved, it has no effect on net income. This is an indication that participants were over-performing in the control and, when confronted with a redistribution scheme, diminished their production such that the moment of switching to the leisure mode was closer to the optimum. Thus, earning relatively equal despite the effective tax rate of 40\%.\\
 
@@ -162,9 +164,10 @@ Var: Residual                              & 11.77         \\
 
 
 \subsection{Switching Time}
+\textcolor{red}{Rephrase: Willingnes to work more than optimum in order to achieve a higher available income}
 During the competition, participants tend to work more than their optimum. Remember, participants should switch as soon as the time they need to solve a given task surpasses the earnings in the switch mode for the corresponding time. In the control group, players with the low wage should change as soon as they take longer than 10 seconds to solve the task, in the treatment, as soon as they need more than six seconds. In each treatment, players with the high wage should switch at twice the respective time. Figure \ref{fig:time_per_task} shows the time needed for each task per round and marks the 10 and 20 seconds cutoffs.\\
 
-It seems as if in fact the time needed to solve each sequence is more compressed to the middle in the treatment. That is, less people are taking time above the cutoffs to solve sequences before switching. Table \ref{table:earnings_lmer} offers a strong indication in this direction as explained at the end of section \ref{sec:seq_prod}. However, a Wilcoxon test \footnote{conducted using the \textit{stats} package \cite{rcoreteam2014}} cannot reject the null hypothesis (p =0 .283) of no shift regarding the overall seconds over the 10 or 20 cutoffs. In chapter \ref{ch:discussion} I address a design change that could make it easier to identify if there are general changes to the switching point when taxation is introduced.\\
+It seems as if in fact the time needed to solve each sequence is more compressed to the middle in the treatment. That is, less people are taking time above the cutoffs to solve sequences before switching. Table \ref{table:earnings_lmer} offers a strong indication in this direction as explained at the end of section \ref{sec:seq_prod}. However, a Wilcoxon test \footnote{conducted using the \textit{stats} package \cite{rcoreteam2014}} cannot reject the null hypothesis (p = 0 .283) of no shift regarding the overall seconds over the 10 or 20 cutoffs. In chapter \ref{ch:discussion} I address a design change that could make it easier to identify if there are general changes to the switching point when taxation is introduced.\\
 
 \begin{figure}
     \centering
@@ -175,9 +178,9 @@ It seems as if in fact the time needed to solve each sequence is more compressed
 
 \section{Controls}
 
-In the \textit{Cognitive Reflection Test}, participants answered, out of 4, in average 2.22 (s.e. 0.1) questions correctly. Men answered in average 0.3 (s.e. 0.15) more questions correctly with women giving 2.09 (s.e. 0.13) right answers in average.\\
+\textcolor{red}{Rephrase and add more detail if possible}In the \textit{Cognitive Reflection Test}, participants answered, out of a maximum of four, on average 2.22 (s.e. 0.1) questions correctly. Men answered on average 0.3 (s.e. 0.15) more questions correctly with women giving 2.09 (s.e. 0.13) right answers on average.\\
 
-In the \textit{Risk Elicitation} task, participants chose in average row 6.6 to switch, which according to table \ref{table:HL} indicates a risk averse to very risk averse behaviour. Men generally showed a more risk averse behaviour, switching in average at row 6.93 (s.e. 0.32), while women switched in average already at row 6.36 (s.e. 0.33). Figure \ref{fig:hist_mpl} shows a histogram of the row at which participants switched.\\
+In the \textit{Risk Elicitation} task, participants chose on average row 6.6 to switch, which according to table \ref{table:HL} indicates a risk averse to very risk averse behaviour. Men generally showed a more risk averse behaviour, switching on average at row 6.93 (s.e. 0.32), while women switched on average already at row 6.36 (s.e. 0.33). Figure \ref{fig:hist_mpl} shows a histogram of the row at which participants switched.\\
 
 \begin{figure}
     \centering
@@ -187,7 +190,7 @@ In the \textit{Risk Elicitation} task, participants chose in average row 6.6 to 
 \end{figure}
 
 
-Participants did not seem to change their views on the fairness of the game. Figure \ref{fig:fairness_boxplot} shows a boxplot of their assessment at the beginning and at the end of the competition rounds. Table \ref{tab:fair_ols} shows a linear regression that shows no apparent significant influence in changing a participant's view on fairness.\\
+\textcolor{red}{Rephrase:}Participants did not seem to change their views on the fairness of the game. Figure \ref{fig:fairness_boxplot} shows a boxplot of their assessment at the beginning and at the end of the competition rounds. Table \ref{tab:fair_ols} shows a linear regression that shows no apparent significant influence in changing a participant's view on fairness.\\
 
 \begin{figure}
     \centering
@@ -242,7 +245,7 @@ F Statistic & 0.235 (df = 6; 89) \\
 
 \section{Hypotheses Testing}
 
-In this section we will have a look at the results regarding, first, the distribution of probabilities and its change across rounds, and, second, the factors affecting the probability of winning for a given individual according to the hypotheses postulated in section \ref{ss:hyp}.
+In this section we will have a look at the results regarding, first, the distribution of probabilities and its change across rounds, and, second, the factors affecting the probability of winning for a given individual according to the hypotheses postulated in section \ref{sec:hyp}.
 
 
 \subsection{Hypotheses 1 and 2}
@@ -254,7 +257,9 @@ The first step to test these hypotheses is to determine the optimal investment v
 
 Furthermore, since the treatment and control groups have different valuations, to easier compare the results I analyze the mean difference over optimal investment for both groups instead of the nominal amount of over-investment. Note that in comparison to table \ref{tab:avg_prod_bench}, the valuation for the treated groups is calculated from the difference in the taxed benchmark rounds as explained in section \ref{ss:tax_bench}.\\
 
-Consistent with expectations, participants bid on average significantly more than their optimum but decreasingly so over time, as Figure \ref{fig:over_invest} shows. Interestingly, participants in the taxation treatment invest both nominally and relatively more than those in the control, with treatment participants bidding on average 5 and a half times their optimal investment in the first round and 2.3 times their optimum in the last round. Participants in the control, on the other hand, invest from 1.93 times their optimum in the first round, to 1.36 times in the last round.\\
+Consistent with expectations, participants bid on average significantly more than their optimum but decreasingly so over time, as Figure \ref{fig:over_invest} shows. It plots each round to the mean per treatment of the over investment ratio, i.e., how many times more than the optimum was invested on average.\\
+
+Interestingly, participants in the taxation treatment invest both nominally and relatively more than those in the control, with treatment participants bidding on average 5 and a half times their optimal investment in the first round and 2.3 times their optimum in the last round. Participants in the control, on the other hand, invest from 1.93 times their optimum in the first round, to 1.36 times in the last round.\\
 
 
 \begin{figure}
@@ -332,7 +337,7 @@ Figure \ref{fig:beliefs_smooth} plots the differences between the estimation mad
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{graphs/beliefs_smooth_lm.png}
-    \caption{Mean Over or Under-estimation of other's investments by group and round}
+    \caption{Mean Absolute Over or Under-estimation of other's investments by group and round}
     \label{fig:beliefs_smooth}
 \end{figure}
 
@@ -397,7 +402,7 @@ Table \ref{tab:var_coeff_ols} shows the results for an OLS regression of two mod
  mean CRT score &  & 0.092 \\ 
   &  & (0.059) \\ 
   & & \\ 
- mean switching row &  & $-$0.020 \\ 
+ mean risk aversion &  & $-$0.020 \\ 
   &  & (0.025) \\ 
   & & \\ 
  mean valuation &  & $-$0.033 \\ 
@@ -421,7 +426,7 @@ F Statistic & 3.857$^{**}$ (df = 2; 221) & 2.431$^{**}$ (df = 5; 218) \\
 
 Of course, this does not tell us much about what determines the probability of a given participant to win a contest. To analyze it, I suggest again a linear mixed model although this time a generalized mixed model from a beta distribution\footnote{Since several participants did not invest at all and thus had a probability of winning of 0, leading to some other participants to have a probability of winning of 1, those values were transformed to 0.0000000000001 and 0.0000000000009 respectively to allow to fit a beta distribution. The analysis was conducted with the \textit{glmmTMB} package \citep{brooks2017}}. Table \ref{tab:glm_prob} shows the results.\\
 
-The only variable that shows a significant, although small, effect on the probability of winning is the size of the available income. Note in particular, that having won alone has no significant effect on the probability of winning. This is in part because participants can still have a large available income if they forfeit time in the leisure mode. An alternative model including cumulative wins also showed no influence on the probability of winning.\\
+The only variable that shows a significant, although small, effect on the probability of winning is the size of the available income. Note in particular, that having won alone has no significant effect on the probability of winning. This is in part because participants can still have a large available income if they forfeit time in the leisure mode. An alternative model including cumulative wins also showed no influence on the probability of winning\footnote{The regression table is in the Appendix \ref{ax:glm_prob}}.\\
 
 \begin{table}[!htbp] \centering 
   \caption{GLMM Probability of Winning} 
