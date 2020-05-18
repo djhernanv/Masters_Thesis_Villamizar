@@ -6,11 +6,14 @@ All the data preparation, analysis and visualization was done using the statisti
 
 At the end of the session, participants were paid anonymously, in private, and in cash, ranging from EUR 12.5 to 31.3 for an average payoff of EUR 22.9.  \textcolor{red}{\textbf{To be discussed}: All data, scripts and results are available at XXX.XXX.XXX, even those that for space reasons were not included in the print version of this thesis.}\\
 
-\section{Sequence Production}
+\section{Descriptive Statistics}
+
+Before diving into the hypotheses regarding investment and winning probabilities as postulated in section \ref{sec:hyp}, we want to get a sense of the general behavior patterns participants showed during the competition, particularly regarding the solution of the RET and how that behavior differed between treatments.
+
+\subsection{Solved Sequences}
 \label{sec:seq_prod}
 
-
-\textcolor{red}{Reorder section to Desctiptive stats}During the benchmarking rounds, participants solved around 10 sequences with the piece rate of one token per sequence. With the high piece rate of two tokens per sequence, participants solved an average of 15.3 sequences. The mean valuation, that is, the mean difference between the earnings (income from solving sequences plus income from the leisure mode) in the low and the high piece rate was of around 13 tokens. Table \ref{tab:avg_prod_bench} summarises these findings.\\
+During the benchmarking rounds, participants solved around 10 sequences with the piece rate of one token per sequence. With the high piece rate of two tokens per sequence, participants solved an average of 15.3 sequences. The mean valuation, that is, the mean difference between the earnings (income from solving sequences plus income from the leisure mode) in the low and the high piece rate was of around 13 tokens. Table \ref{tab:avg_prod_bench} summarises these findings.\\
 
 \begin{table}[!htbp] \centering 
   \caption{Mean Values of Production in Benchmark} 
@@ -164,8 +167,7 @@ Var: Residual                              & 11.77         \\
 
 
 \subsection{Switching Time}
-\textcolor{red}{Rephrase: Willingnes to work more than optimum in order to achieve a higher available income}
-During the competition, participants tend to work more than their optimum. Remember, participants should switch as soon as the time they need to solve a given task surpasses the earnings in the switch mode for the corresponding time. In the control group, players with the low wage should change as soon as they take longer than 10 seconds to solve the task, in the treatment, as soon as they need more than six seconds. In each treatment, players with the high wage should switch at twice the respective time. Figure \ref{fig:time_per_task} shows the time needed for each task per round and marks the 10 and 20 seconds cutoffs.\\
+During the competition, participants appear willing to work more than their optimum in order to achieve a higher available income. Remember, participants should switch as soon as the time they need to solve a given task surpasses the earnings in the switch mode for the corresponding time. In the control group, players with the low wage should change as soon as they take longer than 10 seconds to solve the task, in the treatment, as soon as they need more than six seconds. In each treatment, players with the high wage should switch at twice the respective time. Figure \ref{fig:time_per_task} shows the time needed for each task per round and marks the 10 and 20 seconds cutoffs.\\
 
 It seems as if in fact the time needed to solve each sequence is more compressed to the middle in the treatment. That is, less people are taking time above the cutoffs to solve sequences before switching. Table \ref{table:earnings_lmer} offers a strong indication in this direction as explained at the end of section \ref{sec:seq_prod}. However, a Wilcoxon test \footnote{conducted using the \textit{stats} package \cite{rcoreteam2014}} cannot reject the null hypothesis (p = 0 .283) of no shift regarding the overall seconds over the 10 or 20 cutoffs. In chapter \ref{ch:discussion} I address a design change that could make it easier to identify if there are general changes to the switching point when taxation is introduced.\\
 
@@ -176,9 +178,9 @@ It seems as if in fact the time needed to solve each sequence is more compressed
     \label{fig:time_per_task}
 \end{figure}
 
-\section{Controls}
+\subsection{Controls}
 
-\textcolor{red}{Rephrase and add more detail if possible}In the \textit{Cognitive Reflection Test}, participants answered, out of a maximum of four, on average 2.22 (s.e. 0.1) questions correctly. Men answered on average 0.3 (s.e. 0.15) more questions correctly with women giving 2.09 (s.e. 0.13) right answers on average.\\
+In the \textit{Cognitive Reflection Test}, participants answered, out of a maximum of four, on average 2.22 (s.e. 0.1) questions correctly. Men answered on average 0.3 (s.e. 0.15) more questions correctly with women giving 2.09 (s.e. 0.13) right answers on average.\\
 
 In the \textit{Risk Elicitation} task, participants chose on average row 6.6 to switch, which according to table \ref{table:HL} indicates a risk averse to very risk averse behaviour. Men generally showed a more risk averse behaviour, switching on average at row 6.93 (s.e. 0.32), while women switched on average already at row 6.36 (s.e. 0.33). Figure \ref{fig:hist_mpl} shows a histogram of the row at which participants switched.\\
 
@@ -190,7 +192,7 @@ In the \textit{Risk Elicitation} task, participants chose on average row 6.6 to 
 \end{figure}
 
 
-\textcolor{red}{Rephrase:}Participants did not seem to change their views on the fairness of the game. Figure \ref{fig:fairness_boxplot} shows a boxplot of their assessment at the beginning and at the end of the competition rounds. Table \ref{tab:fair_ols} shows a linear regression that shows no apparent significant influence in changing a participant's view on fairness.\\
+Participants did not seem to change their views on the fairness of the game. Figure \ref{fig:fairness_boxplot} shows a boxplot of their assessment at the beginning and at the end of the competition rounds. Table \ref{tab:fair_ols} shows a linear regression that shows no apparent significant influence in changing a participant's view on fairness.\\
 
 \begin{figure}
     \centering

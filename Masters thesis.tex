@@ -13,8 +13,13 @@
 
 %allows for two images in one figure and several captions
 %\usepackage{subfigure}%deprecated
+%\usepackage{subfig}
 \usepackage{graphicx}
 \usepackage{subcaption}
+\DeclareCaptionFont{tiny}{\tiny} 
+\captionsetup{font+=tiny} 
+\captionsetup[sub]{font+=tiny} 
+
 
 % For Creating Graphs and Diagrams
 \usepackage{tikz}
