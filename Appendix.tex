@@ -5,7 +5,7 @@
 \chapter{Derivations}
 \label{ax:derivations}
 
-\section*{Investment Optimization in Tullock Contest}
+\section*{Investment Optimization in Tullock Contests}
 
 A player $i$ wants to find the $I^*$ that maximizes his or her expected profit as expressed in the maximization problem:
 
@@ -15,7 +15,7 @@ A player $i$ wants to find the $I^*$ that maximizes his or her expected profit a
 \label{eq:exp_util_anex}
 \end{equation}
 
-Where $n$ is the  number of participants in the game.\\
+Here, $n$ is the  number of participants in the game.\\
 Let us assume that the valuation of the game $\mathbb{V}$ is equal for all players and hence, that the optimal investment $I^{*}$ is equal for everyone. At the maximum of function \ref{eq:exp_util_anex} holds:
 \begin{flalign*}
     \frac{d}{dI_i}(\frac{I_i\mathbb{V}}{I_i + \sum_{j\neq i}^n I_{j}} - I_i) = 0 &&
@@ -37,6 +37,93 @@ Which gives equation \ref{eq:opt_last}:
     I^{*} = \frac{n-1}{n^2}\mathbb{V}
 \end{flalign*}
 
+\section*{Asymmetric Valuations}
+
+An important conundrum that the approach presented in this thesis makes easier to solve than Koch's proposal \cite{koch2017} is a possible difference in valuation of the prize in terms of higher wage since participants with higher ability or higher utility from consumption will have a higher profit from it. \cite{nti1999} shows that in the two player case:\\
+
+\begin{quote}
+    "The player who values the prize more expends more effort in equilibrium but both players allocate the same fraction of their valuations to the contest".\footnote{\cite[p.~419]{nti1999}.}
+\end{quote}
+
+To show this, we just need to write the FOC for the two players explicitly:\footnote{See Appendix \ref{ax:derivations} for a derivation of the FOC.}
+
+\begin{equation*}
+\begin{split}
+    \frac{I_j}{(I_j + I_i)^2}\mathbb{V}_i-1 = 0 \\
+    \frac{I_i}{(I_j + I_i)^2}\mathbb{V}_j-1 = 0
+\end{split}
+\end{equation*}
+
+By equalizing we obtain:
+\begin{equation}
+    \frac{I_i}{\mathbb{V}_i} = \frac{I_j}{\mathbb{V}_j} 
+\end{equation}
+
+Now let us consider the case of $n=3$ for $i \in (a,b,c)$ with exactly one winner.\footnote{\cite{stein2002} offers a general derivation for N players.} Using the same process as above we obtain the equation system:
+
+\begin{align}
+    \frac{(I_a+I_b)}{(I_a+I_b+I_c)^2}\mathbb{V}_c&=1\\
+    \frac{(I_a+I_c)}{(I_a+I_b+I_c)^2}\mathbb{V}_b&=1\\
+    \frac{(I_b+I_c)}{(I_a+I_b+I_c)^2}\mathbb{V}_a&=1
+\end{align}
+
+To more easily visualize the results, we assume w.l.o.g that $I_a = I$, $I_b = \beta_b I$ and $ I_c = \beta_c I $, and that $\mathbb{V}_a = \mathbb{V}$, $\mathbb{V}_b = \alpha_b \mathbb{V} $ and $\mathbb{V}_c = \alpha_c \mathbb{V}$. The equation system thus is simplified to:
+
+\begin{align}
+    \label{eq:sys1}\frac{(1+\beta_b)}{(1+\beta_b+ \beta_c )^2}\alpha_c\mathbb{V}&=I\\
+    \label{eq:sys2}\frac{(1+\beta_c )}{(1+\beta_b  + \beta_c )^2}\alpha_b\mathbb{V}&=I\\
+    \label{eq:sys3}\frac{(\beta_b +\beta_c )}{(1+\beta_b  + \beta_c )^2}\mathbb{V}&=I
+\end{align}
+
+After setting (\ref{eq:sys2}) = (\ref{eq:sys3}) we obtain:
+
+\begin{equation}
+    \label{eq:betab}\beta_b=(1+\beta_c)\alpha_b-\beta_c
+\end{equation}
+
+Similarly, we set (\ref{eq:sys1}) = (\ref{eq:sys3}) and obtain $(1+\beta_b)\alpha_c=\beta_b+\beta_c$ in which we can replace $\beta_b$ by (\ref{eq:betab}). Solving for $\beta_c$ we get:
+\begin{equation}
+\label{eq:betac}
+    \beta_c = \frac{\alpha_b-\alpha_c-\alpha_b\alpha_c}{\alpha_b\alpha_c-\alpha_c-\alpha_b}
+\end{equation}
+Which inserted back in (\ref{eq:betab}) gives us:
+\begin{equation}
+\label{eq:betab2}
+    \beta_b=\alpha_b + \alpha_b\frac{\alpha_b-\alpha_c-\alpha_b\alpha_c}{\alpha_b\alpha_c-\alpha_c-\alpha_b}-\frac{\alpha_b-\alpha_c-\alpha_b\alpha_c}{\alpha_b\alpha_c-\alpha_c-\alpha_b}
+\end{equation}
+
+Finally, from (\ref{eq:betab2}) and (\ref{eq:betac}) we know that $\beta_b+\beta_c = 1+\alpha_b\frac{\alpha_b-\alpha_c-\alpha_b\alpha_c}{\alpha_b\alpha_c-\alpha_c-\alpha_b}$ and we can replace in \ref{eq:sys3} to obtain:
+
+\begin{equation}
+\label{eq:InvDiffVal}
+    I = \frac{\alpha_b+\alpha_b\frac{\alpha_b-\alpha_c-\alpha_b\alpha_c}{\alpha_b\alpha_c-\alpha_c-\alpha_b}}{(1+\alpha_b
+    +\alpha_b\frac{\alpha_b-\alpha_c-\alpha_b\alpha_c}{\alpha_b\alpha_c-\alpha_c-\alpha_b})^2}\mathbb{V}
+\end{equation}
+
+\hfill \break
+
+Now, to more easily see how this function behaves let us assume that only participant \textit{c} has a different valuation and therefore $\alpha_b = 1$. It follows:
+
+\begin{equation}
+    I_a=I_c=\frac{2\alpha_c}{(1+2\alpha_c)^2}\mathbb{V}
+\end{equation}
+
+The denominator will grow faster for increasing $\alpha_c$ which means that $I_a$ will tend to $0$.\\
+
+
+The general case is more cumbersome but we can still find some conditions for the relationship between $\alpha_b$ and $\alpha_c$. Requiring that $\alpha_b, \alpha_c \in \mathbb{R}^+$ and that $\alpha_b\alpha_c-\alpha_c-\alpha_b \neq 0$, it can be shown that, in order for $I\geq0$, then $\alpha_b\alpha_c>\alpha_c+\alpha_b$.\\
+
+This means, in particular, that there are some levels for which an investment is no longer profitable, take for instance $\alpha_b = 2$ and $\alpha_c = 4$.\\
+
+A look at the function graph \ref{fig:invest_func} gives us a better understanding of its behavior. For very low levels of others' valuations the investment value is close to zero but increases with $\alpha_b$ and $\alpha_c$. After achieving a maximum of $\frac{1}{4}$, or the equivalent to the two player game, the function decreases monotonically.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{graphs/Investment_Func.png}
+    \caption{Investment function dependant on the share of others' valuation}
+    \label{fig:invest_func}
+\end{figure}
+
 \chapter{Tables}
 
 \begin{table}[!htbp] \centering
@@ -52,7 +139,7 @@ Low & 1070 & 0.5462\\
 \hline \\[-1.8ex]
 \multicolumn{3}{l}{\footnotesize{Null Hypothesis: Difference in production between treatments is equal to 0}}\\[2ex]
 \end{tabular}
-  \caption{Comparison of productions in the benchmarking rounds between treated and non treated groups} 
+  \caption{Comparison of productions in the benchmarking rounds between treated and non-treated groups} 
   \label{tab:bench_prods_test} 
 \end{table} 
 
@@ -85,7 +172,7 @@ Low & 1070 & 0.5462\\
  gender (male) & 0.317\\ 
    & (0.225) \\ 
    & \\ 
- CRT Score  & $-$0.036 \\ 
+ CRT score  & $-$0.036 \\ 
   & (0.113) \\ 
   & \\ 
  risk aversion & 0.036 \\ 

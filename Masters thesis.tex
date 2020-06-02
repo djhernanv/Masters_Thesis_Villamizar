@@ -20,6 +20,9 @@
 \captionsetup{font+=tiny} 
 \captionsetup[sub]{font+=tiny} 
 
+%package to add a second line within a cell in a table
+\usepackage{makecell}
+
 
 % For Creating Graphs and Diagrams
 \usepackage{tikz}
@@ -192,7 +195,9 @@ headpunct=:
 \newpage
 
 
-\addtocontents{toc}{\protect\thispagestyle{empty}}
+%\addtocontents{toc}{\protect\thispagestyle{empty}}
+{\small\tableofcontents}
+\addtocontents{toc}{\protect\enlargethispage{\baselineskip}}
 \tableofcontents
 
 \textwidth15.8cm 
