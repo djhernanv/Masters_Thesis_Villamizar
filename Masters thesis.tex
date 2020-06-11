@@ -2,7 +2,7 @@
 
 %PACKAGES
 
-\usepackage[english]{babel}
+\usepackage[ngerman,english]{babel}
 
 \usepackage[utf8]{inputenc}% Eingabekodierung
 \usepackage[T1]{fontenc}% Schriftkodierung
@@ -46,26 +46,11 @@
 \definecolor{UniVieClear}{HTML}{006699}
 \definecolor{UniVieGray}{HTML}{333333}
 \definecolor{UniVieOrange}{HTML}{e84e0e}
+\definecolor{UniVieBlau}{HTML}{0063A6}
+\definecolor{UniVieGrau}{HTML}{666666}
 
-%Use library for defining keys
-\usetikzlibrary{shadows}
-
-%define command for keys
-\newcommand*\keystroke[1]{%
-  \tikz[baseline=(key.base)]
-    \node[%
-      draw,
-      fill=white,
-      drop shadow={shadow xshift=0.25ex,shadow yshift=-0.25ex,fill=black,opacity=0.75},
-      rectangle,
-      rounded corners=2pt,
-      inner sep=1pt,
-      line width=0.5pt,
-      font=\scriptsize\sffamily
-    ](key) {#1\strut}
-  ;
-}
-
+%use package for colored box
+\usepackage{tcolorbox}
 
 %to ennumerate Hypothesis and Research Questions.
 % Not compatible with amsthm

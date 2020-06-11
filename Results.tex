@@ -2,9 +2,11 @@
 \label{ch:results}
 \thispagestyle{fancy}
 
-All the data preparation, analysis and visualization was done using the statistical software \textit{R} \citep{rcoreteam2014}.\footnote{Packages used: \textit{tidyverse} \citep{wickham2017b}, \textit{data.table} \citep{dowle2018}, \textit{ineq} \citep{zeileis2014}, \textit{stargazer} \citep{hlavac2018}, \textit{ggplot2} \citep{wickham2016}, \textit{sjstats} \citep{ludecke2018}, \textit{texreg} \citep{leifeld2013}, \textit{ggthemes} \citep{arnold2018}, \textit{ggridges} \citep{wilke2018}, and others which are referenced in due course.} A total of 96 people (55 female and 41 male) with an average age of 25 years took part in a total of four sessions during the second half of 2018. Two of the sessions ran the control while the others two ran the treatment, such that exactly half the participants were in the treatment and half in the control.\\
+The participants of the experiment were selected on a first come, first served basis from registered volunteers of the \textit{Vienna Center for Experimental Economics} who spoke English, were under 40 years of age, and had not participated in more than 10 previous experiments. A total of 96 people (55 female and 41 male) with an average age of 25 years took part in a total of four sessions during the second half of 2018. Two of the sessions ran the control while the others two ran the treatment, such that exactly half the participants were in the treatment and half in the control.\\
 
 At the end of the session, participants were paid anonymously, in private, and in cash, ranging from EUR 12.50 to 31.30 for an average payoff of EUR 22.90.\\  %\textcolor{red}{\textbf{To be discussed}: All data, scripts and results are available at XXX.XXX.XXX, even those that for space reasons were not included in the print version of this thesis.}
+
+All the data preparation, analysis and visualization for this thesis was done using the statistical software \textit{R} \citep{rcoreteam2014}.\footnote{Packages used: \textit{tidyverse} \citep{wickham2017b}, \textit{data.table} \citep{dowle2018}, \textit{ineq} \citep{zeileis2014}, \textit{stargazer} \citep{hlavac2018}, \textit{ggplot2} \citep{wickham2016}, \textit{sjstats} \citep{ludecke2018}, \textit{texreg} \citep{leifeld2013}, \textit{ggthemes} \citep{arnold2018}, \textit{ggridges} \citep{wilke2018}, and others which are referenced in due course.} 
 
 \section{Notes on the Methodology}
 
@@ -70,16 +72,16 @@ treatment & 2 & 11.12 & 90.23 \\
     
 To see if the difference in production between the treatments is statistically significant, and to see how other factors play a role, I used a linear mixed model (LMM) with random intercepts evaluated using the \textit{R} package \textit{lme4} \citep{bates2015}. Since the design only allows for between-group comparisons in the treatment, I do not include a random slope per participant, assuming thus that the effect of time will be the same for all subjects.\\
 
-In this model, the fixed effects are: the \textit{treatment}, \textit{was winner} (if a participant won the previous round and is playing with the high wage), and the \textit{round} number. The random effect is the \textit{subjects id} nested within the \textit{group}. Results are largely reported following \cite{barr2013} and are summarized in table \ref{table:lmer_prod} in the \textit{sequence production} column. P-values were calculated using the likelihood ratio test of the \textit{R} package \textit{lmerTest} \citep{kuznetsova2017}.\\
+In this model, the fixed effects are: the \textit{treatment}, \textit{was winner} (if a participant won the previous round and is playing with the high wage), and the \textit{round} number. The random effect is the \textit{subjects id} nested within the \textit{group}. Results are largely reported following \cite{barr2013} and are summarized in Table \ref{table:lmer_prod} in the \textit{sequence production} column. P-values were calculated using the likelihood ratio test of the \textit{R} package \textit{lmerTest} \citep{kuznetsova2017}.\\
 
-\textit{Treatment} has a small, though significant, effect at the 0.1 level with subjects in the control group solving just shy of 1 sequence more per round (+0.872). All the other fixed effects have no significant or large effect with the model in total explaining 42\% of the observed variance in which the fixed effects explain 1.52\% (conditional R-squared and marginal R-squared respectively, calculated using the \textit{psycho} package \citep{makowski2018}). The variables with no effect include, interestingly, the wage at which participants played.\\
+\textit{Treatment} has a small effect, though significant at the 10\% level, with subjects in the control group solving just shy of 1 sequence more per round (+0.872). All the other fixed effects have no significant or large effect with the model in total explaining 42\% of the observed variance in which the fixed effects explain 1.52\% (conditional R-squared and marginal R-squared respectively, calculated using the \textit{psycho} package \citep{makowski2018}). The variables with no effect include, interestingly, the wage at which participants played.\\
 
 %Not included since Loy argues not necessary
 %Note that although the residual plot and QQ-plot do not make apparent any deviation from a normal distribution nor any systematic increase or decrease in variance, there is much debate as to how to appropriately check for the validity of assumptions in LMMs  \citep{loy2017}, specially when dealing with distributions other than normal, and will therefore not be addressed here in this thesis.\\
 
 It is important to remember that in this experimental design, payoffs are not exclusively determined by the amount of sequences solved. They depend also on: the time spent in the ``switch'' mode and therefore on the optimal change to it, the invested amount in human capital, and, in the treatment, how much the other players worked. The boxplot in Figure \ref{fig:earnings_boxplot} seems to suggest that the net income is higher in the treatment groups and that, apart from the transition from round 1 to round 2, it does not change over time. Note that, here, net income describes income after taxation \textit{and} redistribution, but before investment. The variance of the treatment is smaller since, in that group, by definition, net incomes are closer to each other.\\
 
-In order to see if there were significant differences in net income between treatments, I use a model with fixed effects (\textit{treatment, was winner} and \textit{round}) and summarise the findings in the \textit{net income} column of table \ref{table:lmer_prod}.\\
+In order to see if there were significant differences in net income between treatments, I use a model with fixed effects (\textit{treatment, was winner} and \textit{round}) and summarise the findings in the \textit{net income} column of Table \ref{table:lmer_prod}.\\
 
 \begin{table}[!htbp] \centering 
   \caption{Linear Mixed Model - Sequence Production and Net Income} 
@@ -122,7 +124,7 @@ Var: Residual & 7.28 & 11.77\\
 
 Winning the previous round, i.e. playing with the high wage has a strong and significant effect on net income while time, although marginally significant, has only a small effect. The introduction of a tax and redistribution scheme, on the other hand, does not have a significant effect. The model helps explaining 50.11\% (restricted R-squared) of the variance with the fixed effects accounting for 33.73\% (marginal R-squared) of the variance.\\
 
-Notice that while the taxation treatment has a negative impact on the number of sequences solved, it has no effect on net income. This is an indication that participants were over-performing in the control and, when confronted with a redistribution scheme, diminished their production such that the moment of switching to the leisure mode was closer to the optimum. Thus, they earned relatively equal, despite the effective tax rate of 40\%.\\
+%Notice that while the taxation treatment has a negative impact on the number of sequences solved, it has no effect on net income. This is an indication that participants were over-performing in the control and, when confronted with a redistribution scheme, diminished their production such that the moment of switching to the leisure mode was closer to the optimum. Thus, they earned relatively equal, despite the effective tax rate of 40\%.\\
 
 \begin{figure}
     \centering
@@ -175,7 +177,7 @@ Notice that while the taxation treatment has a negative impact on the number of 
 \subsection{Switching Time}
 During the competition, participants appear willing to work more than their optimum in order to achieve a higher available income. Remember, participants should switch as soon as the time they need to solve a given task surpasses the earnings in the ``switch'' mode for the corresponding time. In the control group, players with the low wage should change as soon as they take longer than 10 seconds to solve the task and, in the treatment, as soon as they need more than six seconds. In each treatment, players with the high wage should switch at twice the respective time. Figure \ref{fig:time_per_task} shows the time needed for each task per round and marks the 10 and 20 seconds cut-offs.\\
 
-It seems as if, in fact, the time needed to solve each sequence is more compressed to the middle in the control group. That is, fewer people are taking time above the cut-offs to solve sequences before switching. Table \ref{table:lmer_prod} offers a strong indication in this direction, as explained at the end of section \ref{sec:seq_prod}. However, a Wilcoxon test\footnote{This is conducted using the \textit{stats} package \cite{rcoreteam2014}.} cannot reject the null hypothesis (p = 0 .283) of no shift with regard to the overall seconds over the 10 or 20 cut-offs. In chapter \ref{ch:discussion}, I address a design change that could make it easier to identify if there are general changes to the switching point when taxation is introduced.\\
+It seems as if, in fact, the time needed to solve each sequence is more compressed to the middle in the control group. That is, fewer people are taking time above the cut-offs to solve sequences before switching. However, a Wilcoxon test\footnote{This is conducted using the \textit{stats} package \cite{rcoreteam2014}.} cannot reject the null hypothesis (p = 0 .283) of no shift with regard to the overall seconds over the 10 or 20 cut-offs. In chapter \ref{ch:discussion}, I address a design change that could make it easier to identify if there are general changes to the switching point when taxation is introduced.\\
 
 \begin{figure}
     \centering
@@ -188,9 +190,9 @@ It seems as if, in fact, the time needed to solve each sequence is more compress
 
 In the \textit{Cognitive Reflection Test}, participants answered, out of a maximum of four, on average 2.22 (s.e. 0.1) questions correctly. Men answered, on average, 0.3 (s.e. 0.15) more questions correctly, with women giving 2.09 (s.e. 0.13) correct answers on average.\\
 
-In the \textit{Risk Elicitation} task, participants, on average, decided to switch on row 6.6, which according to table \ref{table:HL} indicates a risk averse to very risk averse behaviour. Men generally showed a more risk averse behaviour, switching on average at row 6.93 (s.e. 0.32), while women switched on average already at row 6.36 (s.e. 0.33). Figure \ref{fig:hist_mpl} shows a histogram of the row at which participants switched.\\
+In the \textit{Risk Elicitation} task, participants decided to switch on average on row 6.6, which according to Table \ref{table:HL} indicates a risk averse to very risk averse behaviour. Men generally showed a more risk averse behaviour, switching on average at row 6.93 (s.e. 0.32), while women switched on average already at row 6.36 (s.e. 0.33). Figure \ref{fig:hist_mpl} shows a histogram of the row at which participants switched.\\
 
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.3]{graphs/hist_mpl.png}
     \caption{Histogram of Choice of Switching Row}
@@ -200,7 +202,7 @@ In the \textit{Risk Elicitation} task, participants, on average, decided to swit
 
 Participants did not seem to change their views on the fairness of the game. Figure \ref{fig:fairness_boxplot} shows a boxplot of their assessment at the beginning and at the end of the competition rounds with 0 being only luck and 7 being only skill that determined the outcome of the game. Table \ref{tab:fair_ols} lists the results of a linear regression. However, no characteristic shows any significant effect on the change in fairness sentiment.\\
 
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{graphs/fairness_sentiment_boxplot.png}
     \caption{Fairness Sentiment Voting}
@@ -264,9 +266,9 @@ In this section, we will look at the results regarding, first, the distribution 
 \textbf{Hypothesis \ref{hyp:treat}:} \textit{Mean investments will be higher than the expected profit maximizing value for all treatments, but will decrease over time.}\\ 
 \textbf{Hypothesis \ref{hyp:treat-overinvest}:} \textit{Participants in the treatment group will invest a smaller multiple of their optimal investment.}\\
 
-The first step taken to test these hypotheses is to determine the optimal investment value for each participant. Running a t-test on the hypothesis that the distance to the mean is 0, in other words, that there is no difference in valuation between participants, supports this assumption (p = 1 for control and p = 0.85 for the treatment). This result greatly simplifies the process by allowing the use of formula \ref{eq:opt_last}.\\
+The first step needed to test these hypotheses is to determine the optimal investment value for each participant. Running a t-test on the hypothesis that the distance to the mean of valuations is 0, in other words, that there is no difference in valuation between participants, supports this assumption (p = 1 for control and p = 0.85 for the treatment). This result greatly simplifies the process by allowing the use of formula \ref{eq:opt_last}.\\
 
-Furthermore, since the treatment and control groups have different valuations, to more easily compare the results I analyze the mean difference over optimal investment for both groups instead of the nominal amount of over-investment. Note that in comparison to table \ref{tab:avg_prod_bench}, the valuation for the treated groups is calculated from the difference in the taxed benchmark rounds as explained in section \ref{ss:tax_bench}.\\
+Furthermore, since the treatment and control groups have different valuations, to more easily compare the results I analyze the mean difference over optimal investment for both groups instead of the nominal amount of over-investment. Note that the valuation for the treated groups is calculated from the difference in the taxed benchmark rounds as explained in section \ref{ss:tax_bench}.\\
 
 Consistent with expectations, participants bid on average significantly more than their optimum but decreasingly so over time, as Figure \ref{fig:over_invest} shows. It plots each round to the mean per treatment of the over investment ratio, i.e., how many times more than the optimum was invested on average.\\
 
@@ -281,18 +283,21 @@ Interestingly, participants in the taxation treatment invest both nominally and 
 \end{figure}
 
 
-A possibility for why participants in the treatment invest relatively more is that subjects in both groups apply a simple heuristic of a given proportion of available income to invest. Given the fact that taxed players have a lower valuation but a higher disposable income, their bids are a higher proportion of the optimum. Running a regression on the investment ratio of available income in fact deletes the effect of all fixed effects but time, suggesting that participants tend to invest the same amount of their available income, regardless of their earnings or idiosyncratic features. Figure \ref{fig:invest_share} shows a plot of the mean shares of the available income invested. The shares decrease with time in similar fashion for both treatments and, apart from the final investing round, within a standard error from each other.\\
+A possibility for why participants in the treatment invest relatively more is that subjects in both groups apply a simple heuristic of a given proportion of available income to invest. Given the fact that taxed players have a lower valuation but a higher disposable income, their bids are a higher proportion of the optimum. Running a regression on the investment ratio of available income in fact deletes the effect of all fixed effects but time, suggesting that participants tend to invest the same amount of their available income, regardless of their earnings or idiosyncratic features (see Table \ref{ax:available_share}). Figure \ref{fig:invest_share} shows a plot of the mean shares of the available income invested. The shares decrease with time in similar fashion for both treatments and, apart from the final investing round, within a standard error from each other.\\
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{graphs/investment_share_geom_line.png}
     \caption{Investment Share of Available Income per Round}
     \label{fig:invest_share}
 \end{figure}
 
-Table \ref{tab:over_invest} presents a linear mixed model dissecting the most important causes over-investing. The random effects are \textit{participants} nested in \textit{group}s.\\
+Table \ref{tab:over_invest} presents a linear mixed model dissecting the most important causes for over-investing. The random effects are \textit{participants} nested in \textit{group}s.\\
 
-\begin{table} \centering 
+The first and second models have a total explanatory power of around 52\% (conditional R-squared) in which the fixed effects of the first explain 10.03\% and the second 14.5\% of the variance (marginal R-squared). The effect of the treatment is significant and large for both models with participants investing, contrary to hypothesis \ref{hyp:treat-overinvest}, almost double as much over the optimum as subjects in the control group. Round repetition and risk averse behavior have both a significant, although relatively small, effect in the expected negative direction. The CRT score and whether a participant was playing with a high wage did not have a significant effect on the over-investment ratio.\\
+
+\begin{table} 
+\centering 
   \caption{Linear Mixed Model: Over Investment Ratio} 
   \label{tab:over_invest}
   \scalebox{0.6}{%
@@ -342,9 +347,7 @@ Var: Residual                              & 8.14   &   8.14    \\
 \end{table}
 
 
-The first and second models have a total explanatory power of around 52\% (conditional R-squared) in which the fixed effects of the first explain 10.03\% and the second 14.5\% of the variance (marginal R-squared). The effect of the treatment is significant and large for both models with participants investing, contrary to hypothesis \ref{hyp:treat-overinvest}, almost double as much over the optimum as subjects in the control group. Round repetition and risk averse behavior have both a significant, although relatively small, effect in the expected negative direction. The CRT score and whether a participant was playing with a high wage did not have a significant effect on the over-investment ratio.\\
-
-Figure \ref{fig:beliefs_smooth} plots the differences between the estimation made by participants before the investment round and the actual investments  made. In the plot, a reduction in the mean over-estimation can be seen. It indicates better knowledge of other's behaviour with progressing rounds. It is nevertheless surprising how little accuracy participants appear to gain even after playing seven rounds and having been shown all relevant information.\\
+Figure \ref{fig:beliefs_smooth} plots the differences between the estimation made by participants before the investment round and the actual investments  made. A perfect guess would be located at 0 in the y-axis. In the plot, a reduction in the mean over-estimation can be seen. It indicates better knowledge of other's behaviour with progressing rounds. It is nevertheless surprising how little accuracy participants appear to gain even after playing seven rounds and having been shown all relevant information.\\
 
 \begin{figure}
     \centering
@@ -362,16 +365,16 @@ A Wilcoxon rank test (p = 0.01) suggests, furthermore, that total welfare (the t
 
 Participants appear to invest less with each round as the histogram in Figure \ref{fig:invest_hist} shows. Indeed, several participants do not invest anything at all and their number increases with each repetition which leads to the pattern shown in Figure \ref{fig:invest_prob_point}: With increasing rounds, the relationship between the invested amounts and the probability obtained grow apart. This means, in particular, that with each passing round, more lower investments had a higher probability of winning.\\
 
-\begin{figure}
+\begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{graphs/investment_amount_hist.png}
+    \includegraphics[scale=0.4]{graphs/investment_amount_hist.png}
     \caption{Histogram of Investment Amounts by Round. The Red Line Demarks the Median of the Distribution.}
     \label{fig:invest_hist}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{graphs/invest_prob_point.png}
+    \includegraphics[scale=0.4]{graphs/invest_prob_point.png}
     \caption{Plot of the Probability Achieved by a Given Investment per Round}
     \label{fig:invest_prob_point}
 \end{figure}
